@@ -29,8 +29,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['my-recipes-book-5149219e370b.herokuapp.com/',
+ 
+ALLOWED_HOSTS = ['.herokuapp.com',
                  '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 
