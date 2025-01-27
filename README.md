@@ -1,3 +1,5 @@
+
+
 ## PROBLEM STATEMENT
 
 Many people face difficulties in finding reliable and practical recipes that actually work, as well as not knowing where to seek help with culinary questions. Additionally, many opt for processed and ultra-processed foods due to a lack of knowledge and skills to cook their own meals, leading to an imbalanced diet full of preservatives and harmful ingredients. "My Meals" aims to address these issues by providing a platform where users can find tested recipes, ask questions, and learn to cook in a healthy way, contributing to the improvement of eating habits and reducing the consumption of processed foods.
@@ -87,3 +89,6 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 [https://lucid.app/](https://lucid.app/)
 
 [https://dbdiagram.io/](https://dbdiagram.io/)
+
+
+## CREDITS
