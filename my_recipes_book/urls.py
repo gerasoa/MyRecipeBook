@@ -22,8 +22,9 @@ from django.urls import path, include
 urlpatterns = [
     #path('', recipes.my_recipes, name='home'),  # Define a URL raiz como a view my_recipes
     # path('', recipes.under_construction, name='under_construction'),
-    # path('recipes/', recipes.my_recipes, name='recipes'),
-    path("", include("recipes.urls"), name="recipes-urls"),
+    # path('recipes/', recipes.my_recipes, name='recipes'),   
+    path('summernote/', include('django_summernote.urls')),
     path('admin/', admin.site.urls),
+     path("", include("recipes.urls"), name="recipes-urls"),
     #path('', include('recipes.urls'), name='home'),    
 ]

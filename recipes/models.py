@@ -10,7 +10,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True)
     #slug = models.SlugField(max_length=200, unique=True)
-    challenge = models.SlugField()
+    slug = models.SlugField()
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="book_recipes"   
     )
