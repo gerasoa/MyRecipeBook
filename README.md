@@ -11,6 +11,7 @@ The target audience for "My Mels" includes a diverse group of individuals who sh
 **Admin**: Site moderators who are responsible for managing and maintaining the quality of content, such as reviewing recipe submissions and monitoring comments to ensure they are appropriate.
 
 
+
 ## USER STORIES
 
 USER STORY: User Login [#1](https://github.com/gerasoa/MyRecipeBook/issues/2#issue-2811824467)
@@ -31,5 +32,9 @@ USER STORY: Moderate Recipe Submissions and Comments [#8](https://github.com/ger
 
 USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#issue-2811842049)
 
+
 ## DATA MODEL
 ![Data model](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/database-model.png)
+
+## USER FLOW DIAGRAM
+![Data model](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/user-flow.png)
