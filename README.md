@@ -32,4 +32,4 @@ USER STORY: Moderate Recipe Submissions and Comments [#8](https://github.com/ger
 USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#issue-2811842049)
 
 ## DATA MODEL
-![]
+![https://github.com/gerasoa/MyRecipeBook/blob/main/docs/database-model.png]
