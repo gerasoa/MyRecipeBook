@@ -37,4 +37,13 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 ![Data model](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/database-model.png)
 
 ## USER FLOW DIAGRAM
-![Data model](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/user-flow.png)
+![User flow](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/user-flow.png)
+
+
+## WIREFRAMES
+
+![wireframe browser](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-browser.png)
+
+![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
+
+![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
