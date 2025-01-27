@@ -81,3 +81,9 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 ![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
 
 ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
+
+## REFERENCES
+
+[https://lucid.app/](https://lucid.app/)
+
+[https://dbdiagram.io/](https://dbdiagram.io/)
