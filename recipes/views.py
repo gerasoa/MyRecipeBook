@@ -20,7 +20,7 @@ class RecipeList(generic.ListView):
     #model = Recipe
     queryset = Recipe.objects.filter(status=1)
     # template_name = 'recipes/recipes_list.html'
-    #context_object_name = 'recipes'
+    context_object_name = 'recipe_list'
     template_name = "recipes/index.html"
     paginate_by = 6
 
