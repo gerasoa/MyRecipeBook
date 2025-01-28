@@ -19,8 +19,10 @@ from .models import Recipe
 class RecipeList(generic.ListView):
     #model = Recipe
     queryset = Recipe.objects.filter(status=1)
-    template_name = 'recipes/recipes_list.html'
-    context_object_name = 'recipes'
+    # template_name = 'recipes/recipes_list.html'
+    #context_object_name = 'recipes'
+    template_name = "recipes/index.html"
+    paginate_by = 6
 
    
    
