@@ -67,9 +67,11 @@
                     </li>
                     {% endif %}
                     </ul>
-                    <span class="navbar-text text-muted">
-                        adventures of a software developer
-                    </span>
+                    {% if user.is_authenticated %}
+                        <span class="navbar-text text-muted">You are logged in as <strong>{{ user }}</strong></span>
+                    {% else %}
+                        <span class="navbar-text text-muted">You are not logged in</span>
+                    {% endif %}
             </div>
         </div>
     </nav>

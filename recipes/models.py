@@ -27,20 +27,20 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
-class Comment(models.Model):
-    recipe = models.ForeignKey(
-        Recipe, on_delete=models.CASCADE, related_name="comments")
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="commenter")
-    body = models.TextField()
-    approved = models.BooleanField(default=False)
-    created_on = models.DateTimeField(auto_now_add=True)
+# class Comment(models.Model):
+#     recipe = models.ForeignKey(
+#         Recipe, on_delete=models.CASCADE, related_name="comments")
+#     author = models.ForeignKey(
+#         User, on_delete=models.CASCADE, related_name="commenter")
+#     body = models.TextField()
+#     approved = models.BooleanField(default=False)
+#     created_on = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ["-created_on"]
+#     class Meta:
+#         ordering = ["-created_on"]
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
 
 
 
