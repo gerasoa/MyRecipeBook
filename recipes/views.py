@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 # from django.http import HttpResponse
 from django.views import generic
 from .models import Recipe
-
+from chefs.models import Chef
 # def my_recipes(request):
 #     return HttpResponse("Hello, My recipe!!")
 
@@ -24,6 +24,14 @@ class RecipeList(generic.ListView):
     template_name = "recipes/index.html"
     paginate_by = 6
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['chefs'] = Chef.objects.all()
+        return context
+
+    def get_queryset(self):
+        return Recipe.objects.filter(status=1).order_by('-created_on')
+    
 
 def Recipe_detail(request, slug):
     queryset = Recipe.objects.filter(status=1)

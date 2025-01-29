@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Our Chefs</h1>
+    <ul>
+        {% for chef in chefs %}
+        <li>
+            <a href="{% url 'chef_detail' chef.slug %}">{{ chef.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

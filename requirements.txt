@@ -9,6 +9,7 @@ Django==4.2.18
 django-summernote==0.8.20.0
 gunicorn==20.1.0
 idna==3.10
+pillow==11.1.0
 psycopg2==2.9.10
 requests==2.32.3
 six==1.17.0
