@@ -18,7 +18,8 @@
                                     <p class="author">Author: {{ recipe.author.first_name }} {{ recipe.author.last_name }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="recipe-link">
+                            <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
+                               
                                 <h2 class="card-title">{{ recipe.title }}</h2>                                
                             </a>
                             <p class="card-text">{{ recipe.description|truncatewords:40 }}</p>
