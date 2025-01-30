@@ -7,6 +7,9 @@ from .models import Recipe, Comment
 from chefs.models import Chef
 from .forms import CommentForm
 
+def under_construction(request):
+    return render(request, 'under_construction.html')
+
 # # Create your views here.
 class RecipeList(generic.ListView):
     #model = Recipe

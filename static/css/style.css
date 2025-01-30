@@ -1,5 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.montserrat-bold {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 800; /* Bold weight */
+  font-style: normal;
+}
+
+h2 {
+    font-family: "Montserrat", serif;    
+    font-weight: 800; 
+    color: rgb(78, 57, 105);
+}
+
 body {
-    background-color: #F9FAFC;
+    background-color:red;
 }
 
 .brand {
