@@ -27,6 +27,7 @@ class Recipe(models.Model):
     ingredients = models.TextField()
     steps = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
+    favorites = models.ManyToManyField(User, related_name='favorite_recipes', blank=True)
     difficulty = models.IntegerField(choices=DIFFICULTY, default=0)    
     prep_time = models.CharField(max_length=15,help_text="Preparation time in minutes")
     cook_time = models.CharField(max_length=15,help_text="Cooking time in minutes")

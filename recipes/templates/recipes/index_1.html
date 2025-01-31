@@ -11,49 +11,123 @@ div {
 
 
 <div class="container">
+    {% if user.is_authenticated %}
     <div class="row">
         <div class="col-md-12">
-            <h2>New recipes</h2>
+            <h2>My Favorites</h2>
         </div>
     </div>
+    {% endif %}
     <div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
-        {% for recipe in recent_recipes %}
+        {% for recipe in favorite_recipes %}
         <div class="col">
             <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
                 <div class="card section-dark">
                     <img src="/static/images/default.jpg" class="card-img-top" alt="..." height="200px">
                     <div class="card-body">
-                        <h3 class="card-title text-start" >{{ recipe.title }}</h3>
-                        <p class="card-text"><i class="far fa-comments comment-icon"> {{ recipe.comment_count }}</i></p>
-                    </div>
-                </div>
+                        <h3 class="card-title text-start">{{ recipe.title }}</h3>
             </a>
-        </div>       
-        {% endfor %}
-    </div>
-    <div class="row">
-        <div class="col-md-12 mt-4">
-            <h2>Top Recipes</h2>
+            <p class="card-text">
+                <span class="float-start">
+                    <i class="far fa-comments comment-icon"> {{ recipe.comment_count }}</i>
+                </span>
+                <span class="float-end">
+                    <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
+                    data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></i>
+                </span>
+            </p>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
-        {% for recipe in recipe_list %}
-        <div class="col">
-            <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
-                <div class="card section-dark">
-                    <img src="/static/images/default.jpg" class="card-img-top" alt="..." height="200px">
-                    <div class="card-body">
-                        <h3 class="card-title text-start" >{{ recipe.title }}</h3>
-                        <p class="card-text"><i class="far fa-comments comment-icon"> {{ recipe.comment_count }}</i></p>
-                    </div>
-                </div>
-            </a>
-        </div>       
-        {% endfor %}
+
+</div>
+{% endfor %}
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>New recipes</h2>
+    </div>
+</div>
+<div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
+    {% for recipe in recent_recipes %}
+    <div class="col">
+        <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
+            <div class="card section-dark">
+                <img src="/static/images/default.jpg" class="card-img-top" alt="..." height="200px">
+                <div class="card-body">
+                    <h3 class="card-title text-start">{{ recipe.title }}</h3>
+        </a>
+        <p class="card-text">
+            <span class="float-start">
+                <i class="far fa-comments comment-icon"> {{ recipe.comment_count }}</i>
+            </span>
+            <span class="float-end">
+                <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
+                    data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></i>
+            </span>
+        </p>
     </div>
 </div>
 
-<!-- index.html content ends here -->
+</div>
+{% endfor %}
+</div>
+<div class="row">
+    <div class="col-md-12 mt-4">
+        <h2>Top Recipes</h2>
+    </div>
+</div>
+<div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
+    {% for recipe in recipe_list %}
+    <div class="col">
+        <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
+            <div class="card section-dark">
+                <img src="/static/images/default.jpg" class="card-img-top" alt="..." height="200px">
+                <div class="card-body">
+                    <h3 class="card-title text-start">{{ recipe.title }}</h3>
+        </a>
+        <p class="card-text">
+            <span class="float-start">
+                <i class="far fa-comments comment-icon"> {{ recipe.comment_count }}</i>
+            </span>
+            <span class="float-end">
+                <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
+                    data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></i>
+            </span>
+        </p>
+    </div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.favorite-icon').forEach(function (icon) {
+            icon.addEventListener('click', function () {
+                var recipeId = this.getAttribute('data-recipe-id');
+                var iconElement = this;
+                fetch(`/recipes/toggle_favorite/${recipeId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.is_favorite) {
+                            iconElement.classList.remove('far');
+                            iconElement.classList.add('fas');
+                        } else {
+                            iconElement.classList.remove('fas');
+                            iconElement.classList.add('far');
+                        }
+                    });
+            });
+        });
+    });
+</script>
 {% endblock %}
 
 {% block copyright %}

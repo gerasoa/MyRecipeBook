@@ -8,6 +8,7 @@ from chefs.models import ChefProfile
 from .forms import CommentForm
 from django.http import JsonResponse
 from django.db.models import Count
+from django.contrib.auth.decorators import login_required
 
 def under_construction(request):
     return render(request, 'under_construction.html')
@@ -23,8 +24,11 @@ class RecipeList(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['chefs'] = ChefProfile.objects.all()
         context['recent_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).order_by('-created_on')[:4]
+        if self.request.user.is_authenticated:
+            context['favorite_recipes'] = self.request.user.favorite_recipes.annotate(comment_count=Count('comments'))
+        else:
+            context['favorite_recipes'] = Recipe.objects.none()
         return context
     
   
@@ -57,36 +61,6 @@ def Recipe_detail(request, slug):
             "comment_form": comment_form,
         },
     )
-
-#using ajax to submit comments
-# def Recipe_detail(request, slug):
-#     recipe = get_object_or_404(Recipe, slug=slug)
-#     if request.method == 'POST':
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             comment = form.save(commit=False)
-#             comment.recipe = recipe
-#             comment.author = request.user
-#             comment.save()
-#             comments = recipe.comments.filter(approved=True).values('author__username', 'body')
-#             return JsonResponse({'success': True, 'message': 'Comment submitted successfully!', 'comments': list(comments)})
-#         else:
-#             return JsonResponse({'success': False, 'message': 'Form is not valid.'})
-#     else:
-#         form = CommentForm()
-#         comments = recipe.comments.filter(approved=True)
-#         comment_count = comments.count()
-#         return render(
-#             request,
-#             "recipes/recipe_detail.html",
-#             {
-#                 "recipe": recipe,
-#                 "comments": comments,
-#                 "comment_count": comment_count,
-#                 "comment_form": form,
-#             },
-#         )
-
 
 def comment_edit(request, slug, comment_id):
 
@@ -123,8 +97,14 @@ def comment_delete(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
-# class HomePage(TemplateView):
-#     """
-#     Displays home page"
-#     """
-#     template_name = 'index.html'
+
+@login_required
+def toggle_favorite(request, recipe_id):
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+    if recipe.favorites.filter(id=request.user.id).exists():
+        recipe.favorites.remove(request.user)
+        is_favorite = False
+    else:
+        recipe.favorites.add(request.user)
+        is_favorite = True
+    return JsonResponse({'is_favorite': is_favorite})
