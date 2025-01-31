@@ -7,27 +7,27 @@ from .models import Recipe, Comment
 from chefs.models import ChefProfile 
 from .forms import CommentForm
 from django.http import JsonResponse
+from django.db.models import Count
 
 def under_construction(request):
     return render(request, 'under_construction.html')
 
 # # Create your views here.
 class RecipeList(generic.ListView):
-    #model = Recipe
-    queryset = Recipe.objects.filter(status=1)
-    # template_name = 'recipes/recipes_list.html'
+    model = Recipe
     context_object_name = 'recipe_list'
     template_name = "recipes/index_1.html"
-    paginate_by = 6
+    
+    def get_queryset(self):
+        return Recipe.objects.filter(status=1).annotate(comment_count=Count('comments')).order_by('-created_on')[:4]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['chefs'] = ChefProfile.objects.all()
+        context['recent_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).order_by('-created_on')[:4]
         return context
-
-    def get_queryset(self):
-        return Recipe.objects.filter(status=1).order_by('-created_on')
     
+  
 
 def Recipe_detail(request, slug):
     queryset = Recipe.objects.filter(status=1)

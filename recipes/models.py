@@ -26,7 +26,6 @@ class Recipe(models.Model):
     description = models.TextField()
     ingredients = models.TextField()
     steps = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     difficulty = models.IntegerField(choices=DIFFICULTY, default=0)    
     prep_time = models.CharField(max_length=15,help_text="Preparation time in minutes")

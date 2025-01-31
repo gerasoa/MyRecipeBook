@@ -9,17 +9,13 @@
     <div class="col-md-12">
       <!-- Recipe title -->
       <h1>{{ recipe.title }}</h1>
-
-
-      <span>Recipe by 
+      <span>Recipe by
         <strong>
           <a href="{% url 'chef_detail' slug=recipe.chef.slug %}">
             {{ recipe.chef }}
           </a>
         </strong>
       </span>
-     
-      
       <!-- <span>Recipe by <strong><a href="#">{{ recipe.chef }}</a></strong></span> -->
       <span class="posted">Posted on {{recipe.created_on|date:"F d, Y"}}</span>
     </div>
@@ -72,10 +68,9 @@
     </div>    
   </div> -->
   <div class="row mb-4">
-    <div class="col col-md-8" style="padding-right: 60px;">
+    <div class="col col-md-8" >
       <h2 id="comments-section">Comments</h2>
-
-      <div id="comments-list">
+      <!-- <div id="comments-list"> -->
       {% for comment in comments %}
       <div class="comment">
         <strong>{{comment.author}}</strong>
@@ -89,27 +84,25 @@
           <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
         </div>
         {% endif %}
-
       </div>
       {% endfor %}
     </div>
-    </div>
-    <div class="col col-md-4 section-dark">
+    
+    <div class="col col-md-4">
       <div class="card-body">
-        {% if user.is_authenticated %}
+      {% if user.is_authenticated %}
         <h3>Leave a comment:</h3>
         <p>Posting as: {{ user.username }}</p>
-        <div id="success-message" class="alert alert-success" style="display: none;"></div>
-        <form id="commentForm" method="post" style="margin-top: 1.3em;">
-          {{ comment_form | crispy }}
-          {% csrf_token %}
-          <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
-        </form>
-        {% else %}
+          <form id="commentForm" method="post" style="margin-top: 1.3em;">
+            {{ comment_form | crispy }}
+            {% csrf_token %}
+              <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+          </form>
+      {% else %}
         <p>Log in to leave a comment</p>
         <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-          href="{% url 'account_login' %}">Login</a>
-        {% endif %}
+        href="{% url 'account_login' %}">Login</a>
+      {% endif %}
       </div>
     </div>
   </div>
@@ -136,57 +129,9 @@
       </div>
     </div>
   </div>
-  <!-- <script>
-    document.getElementById('commentForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const form = event.target;
-      const formData = new FormData(form);
-      const xhr = new XMLHttpRequest();
-      xhr.open('POST', form.action, true);
-      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          const response = JSON.parse(xhr.responseText);
-          if (response.success) {
-            document.getElementById('success-message').innerText = response.message;
-            document.getElementById('success-message').style.display = 'block';
-            form.reset();
-            updateComments(response.comments);
-          } else {
-            alert('An error occurred. Please try again.');
-          }
-        } else {
-          alert('An error occurred. Please try again.');
-        }
-      };
-      xhr.send(formData);
-    });
-  
-    function updateComments(comments) {
-      const commentsList = document.getElementById('comments-list');
-      commentsList.innerHTML = '';
-      comments.forEach(comment => {
-        const commentDiv = document.createElement('div');
-        commentDiv.classList.add('comment');
-        commentDiv.innerHTML = `
-          <strong>${comment.author__username}</strong>
-          <div id="comment${comment.id}">
-            ${comment.body}
-          </div>
-          <span class="posted">${comment.created_on}</span>
-          ${comment.is_author ? `
-          <div style="text-align: right;">
-            <button class="btn btn-delete" comment_id="${comment.id}">Delete</button>
-            <button class="btn btn-edit" comment_id="${comment.id}">Edit</button>
-          </div>
-          ` : ''}
-        `;
-        commentsList.appendChild(commentDiv);
-      });
-    }
-  </script> -->
-  {% endblock content %}
+</div>
+{% endblock content %}
 
-  {% block extras %}
-  <script src="{% static 'js/comments.js' %}"></script>
-  {% endblock %}
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
