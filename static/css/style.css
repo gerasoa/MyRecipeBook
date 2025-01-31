@@ -8,15 +8,71 @@
   font-style: normal;
 }
 
-h2 {
+h1 {
     font-family: "Montserrat", serif;    
     font-weight: 800; 
     color: rgb(78, 57, 105);
 }
 
-body {
-    background-color:red;
+h2 {
+    font-family: "Montserrat", serif;    
+    font-weight: 500; 
+    font-size: 1.5rem;
+    color: rgb(78, 57, 105);
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 26px; 
 }
+
+h2::before {
+    content: "";
+    position: absolute;
+    bottom: -7px; /* Customizable distance from the base of the text */
+    left: 0;
+    width: 60px; /* Customizable length of the line */
+    height: 4px;
+    background-color: orange;
+    
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color:rgb(247, 246, 248);
+    color: rgb(47,34,64);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+  /* .row, [class^="col"] {
+    padding: 15px;
+    margin: 0px;    
+    border: 1px solid gray;   
+}   */
+
+.comment {
+    padding: 15px 4px 15px 4px;
+    margin-bottom: 15px;    
+    /* border: 1px solid gray;    */
+    border-bottom: 1px solid rgb(47, 34, 64);
+}
+
+.comment strong {
+    text-transform: uppercase;
+}
+
+.section-dark { 
+    background-color: rgb(247,246,248);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.posted {
+    /* font-family: "Montserrat", sans-serif;
+    background-color: rgb(247, 246, 248);
+    color: rgb(47, 34, 64);
+    line-height: 1.6; */
+    font-size: 0.8rem; /* Different font size */
+}
+
 
 .brand {
     font-family: Lato, sans-serif;

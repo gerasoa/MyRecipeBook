@@ -6,25 +6,187 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12" style="border: 1px solid blue;">
-      <!-- Conteúdo da coluna direita (33%) -->
-       <p>Recipe title</p>
+    <div class="col-md-12">
+      <!-- Recipe title -->
+      <h1>{{ recipe.title }}</h1>
+
+
+      <span>Recipe by 
+        <strong>
+          <a href="{% url 'chef_detail' slug=recipe.chef.slug %}">
+            {{ recipe.chef }}
+          </a>
+        </strong>
+      </span>
+     
+      
+      <!-- <span>Recipe by <strong><a href="#">{{ recipe.chef }}</a></strong></span> -->
+      <span class="posted">Posted on {{recipe.created_on|date:"F d, Y"}}</span>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8" style="border: 1px solid red;">
-      <!-- Conteúdo da coluna esquerda (66%) -->
-       <p>Image</p>
+    <div class="col col-md-8">
+      <!-- Image -->
+      <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+
+      <strong class="text-secondary">
+        <i class="far fa-comments"></i> <a href="#comments-section">see {{ comment_count }} comments</a>
+
+      </strong>
     </div>
-    <div class="col-md-4" style="border: 1px solid blue;">
-      <!-- Conteúdo da coluna direita (33%) -->
-       <p>Recipe Info</p>
+    <div class="col col-md-4">
+      <p>Recipe Info</p>
+      <ul>
+        <li><span>Difficulty: <strong>{{ ecipe.get_difficulty_display }}</strong></span></li>
+        <li><span>Prep time: <strong>{{ recipe.prep_time }}</strong></span></li>
+        <li><span>Cook time: <strong>{{ recipe.cook_time }}</strong></span></li>
+        <li><span>Serving: <strong>{{ recipe.servings }}</strong></span></li>
+      </ul>
     </div>
   </div>
-</div>
+  <div class="row mb-4">
+    <div class="col col-md-8">
+      <!-- Description -->
+      <h2>Presentation</h2>
+      {{ recipe.description | safe }}
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col col-md-8">
+      <h2>Ingredients</h2>
+      {{ recipe.ingredients | safe }}
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col col-md-8">
+      <h2>Preparation</h2>
+      {{ recipe.steps | safe }}
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col col-md-4">
+      <p>
+      <h2>Preparation</h2>
+      {{ recipe.steps | safe }}
+    </p>
+    </div>    
+  </div> -->
+  <div class="row mb-4">
+    <div class="col col-md-8" style="padding-right: 60px;">
+      <h2 id="comments-section">Comments</h2>
 
-{% endblock content %}
+      <div id="comments-list">
+      {% for comment in comments %}
+      <div class="comment">
+        <strong>{{comment.author}}</strong>
+        <div id="comment{{ comment.id }}">
+          {{ comment.body | linebreaks }}
+        </div>
+        <span class="posted">{{ comment.created_on }}</span>
+        {% if user.is_authenticated and comment.author == user %}
+        <div style="text-align: right;">
+          <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+          <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+        </div>
+        {% endif %}
 
-{% block extras %}
-<script src="{% static 'js/comments.js' %}"></script>
-{% endblock %}
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+    <div class="col col-md-4 section-dark">
+      <div class="card-body">
+        {% if user.is_authenticated %}
+        <h3>Leave a comment:</h3>
+        <p>Posting as: {{ user.username }}</p>
+        <div id="success-message" class="alert alert-success" style="display: none;"></div>
+        <form id="commentForm" method="post" style="margin-top: 1.3em;">
+          {{ comment_form | crispy }}
+          {% csrf_token %}
+          <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+        </form>
+        {% else %}
+        <p>Log in to leave a comment</p>
+        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+          href="{% url 'account_login' %}">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+  <!-- Creating New Comments -->
+
+  <!-- Delete confirmation modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete your comment?
+          This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <script>
+    document.getElementById('commentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', form.action, true);
+      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          if (response.success) {
+            document.getElementById('success-message').innerText = response.message;
+            document.getElementById('success-message').style.display = 'block';
+            form.reset();
+            updateComments(response.comments);
+          } else {
+            alert('An error occurred. Please try again.');
+          }
+        } else {
+          alert('An error occurred. Please try again.');
+        }
+      };
+      xhr.send(formData);
+    });
+  
+    function updateComments(comments) {
+      const commentsList = document.getElementById('comments-list');
+      commentsList.innerHTML = '';
+      comments.forEach(comment => {
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.innerHTML = `
+          <strong>${comment.author__username}</strong>
+          <div id="comment${comment.id}">
+            ${comment.body}
+          </div>
+          <span class="posted">${comment.created_on}</span>
+          ${comment.is_author ? `
+          <div style="text-align: right;">
+            <button class="btn btn-delete" comment_id="${comment.id}">Delete</button>
+            <button class="btn btn-edit" comment_id="${comment.id}">Edit</button>
+          </div>
+          ` : ''}
+        `;
+        commentsList.appendChild(commentDiv);
+      });
+    }
+  </script> -->
+  {% endblock content %}
+
+  {% block extras %}
+  <script src="{% static 'js/comments.js' %}"></script>
+  {% endblock %}

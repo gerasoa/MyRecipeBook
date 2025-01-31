@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
-class Chef(models.Model):
+class ChefProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='chef_profile')
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     bio = models.TextField()
@@ -10,4 +12,4 @@ class Chef(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.user.get_full_name()

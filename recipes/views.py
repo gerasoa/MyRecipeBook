@@ -4,8 +4,9 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Recipe, Comment
-from chefs.models import Chef
+from chefs.models import ChefProfile 
 from .forms import CommentForm
+from django.http import JsonResponse
 
 def under_construction(request):
     return render(request, 'under_construction.html')
@@ -16,12 +17,12 @@ class RecipeList(generic.ListView):
     queryset = Recipe.objects.filter(status=1)
     # template_name = 'recipes/recipes_list.html'
     context_object_name = 'recipe_list'
-    template_name = "recipes/index.html"
+    template_name = "recipes/index_1.html"
     paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['chefs'] = Chef.objects.all()
+        context['chefs'] = ChefProfile.objects.all()
         return context
 
     def get_queryset(self):
@@ -45,9 +46,7 @@ def Recipe_detail(request, slug):
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
     )
-
     comment_form = CommentForm()
-
     return render(
         request,
         "recipes/recipe_detail.html",
@@ -58,7 +57,37 @@ def Recipe_detail(request, slug):
             "comment_form": comment_form,
         },
     )
-   
+
+#using ajax to submit comments
+# def Recipe_detail(request, slug):
+#     recipe = get_object_or_404(Recipe, slug=slug)
+#     if request.method == 'POST':
+#         form = CommentForm(request.POST)
+#         if form.is_valid():
+#             comment = form.save(commit=False)
+#             comment.recipe = recipe
+#             comment.author = request.user
+#             comment.save()
+#             comments = recipe.comments.filter(approved=True).values('author__username', 'body')
+#             return JsonResponse({'success': True, 'message': 'Comment submitted successfully!', 'comments': list(comments)})
+#         else:
+#             return JsonResponse({'success': False, 'message': 'Form is not valid.'})
+#     else:
+#         form = CommentForm()
+#         comments = recipe.comments.filter(approved=True)
+#         comment_count = comments.count()
+#         return render(
+#             request,
+#             "recipes/recipe_detail.html",
+#             {
+#                 "recipe": recipe,
+#                 "comments": comments,
+#                 "comment_count": comment_count,
+#                 "comment_form": form,
+#             },
+#         )
+
+
 def comment_edit(request, slug, comment_id):
 
     if request.method == "POST":

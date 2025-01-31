@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 
-{% block content %}
+<!-- { % block content % }
 <div class="container">
     <h1>{{ chef.name }}</h1>
     <img src="{{ chef.photo.url }}" alt="{{ chef.name }}" class="img-fluid">
+    <p>{{ chef.bio }}</p>
+    <p>Last updated on: {{ chef.updated_on }}</p>
+</div>
+{ % endblock % } -->
+
+{% block content %}
+<div class="container">
+    <h1>{{ chef.user.get_full_name }}</h1>
+    <img src="{{ chef.photo.url }}" alt="{{ chef.user.get_full_name }}" class="img-fluid">
     <p>{{ chef.bio }}</p>
     <p>Last updated on: {{ chef.updated_on }}</p>
 </div>
