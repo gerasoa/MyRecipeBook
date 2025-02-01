@@ -14,12 +14,10 @@ DIFFICULTY = (
 )
 
 # Create your models here.
-
-# a model for a recipe with a title, description, ingredients, preparation steps, and created_at
 class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True)
-    #slug = models.SlugField(max_length=200, unique=True)
     slug = models.SlugField()
+    favorites = models.ManyToManyField(User, related_name='favorite_recipes', blank=True)
     chef = models.ForeignKey(
         ChefProfile, on_delete=models.CASCADE, related_name="book_recipes"   
     )

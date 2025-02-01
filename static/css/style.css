@@ -8,6 +8,11 @@
   font-style: normal;
 }
 
+.nav-link.active {
+    font-weight: bold;
+    color: #007bff; /* Ajuste a cor conforme necessário */
+}
+
 h1 {
     font-family: "Montserrat", serif;    
     font-weight: 800; 
@@ -77,15 +82,28 @@ body {
 }
 
 .card {
-    width: 100%;
-    height: 100%;
-  }
-  
-.card-body{
-    width: 100%;
-    /* height: 100px; */
-  }
+    display: flex;
+    flex-direction: column;
+}
 
+.card-body {
+    flex-grow: 1;
+}
+
+.card-body-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinha os itens ao centro verticalmente */
+    padding: 10px 20px; /* Ajuste conforme necessário */
+}
+
+.float-start {
+    float: left;
+}
+
+.float-end {
+    float: right;
+}
 
 
 .section-dark { 
@@ -94,10 +112,6 @@ body {
 }
 
 .posted {
-    /* font-family: "Montserrat", sans-serif;
-    background-color: rgb(247, 246, 248);
-    color: rgb(47, 34, 64);
-    line-height: 1.6; */
     font-size: 0.8rem; /* Different font size */
 }
 

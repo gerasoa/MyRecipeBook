@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import About
 from .forms import CollaborateForm
 from django.contrib import messages
+from django.urls import reverse
 
 # Create your views here.
 def about_view(request):
@@ -20,6 +21,7 @@ def about_view(request):
         'about/about.html', 
         {
             'about': about,
-            'collaborate_form': collaborate_form
+            'collaborate_form': collaborate_form,
+            'about_url': reverse('about'),
         },
     )

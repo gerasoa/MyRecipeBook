@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>My Favorites</h2>
+        </div>
+    </div>
+    {% endif %}
+            <div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
+                {% for recipe in favorite_recipes %}
+                <div class="col">
+                    <div class="card section-dark h-100 d-flex flex-column">
+                        <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
+                            <img src="/static/images/default.jpg" class="card-img-top" alt="{{recipe.title}}" height="200px">
+                            <div class="card-body flex-grow-1">
+                                <h3 class="card-title text-start">{{ recipe.title }}</h3>
+                            </div>
+                        </a>
+                        <div class="card-body-footer mt-auto d-flex justify-content-between align-items-center">
+                            <span class="float-start">
+                                <i class="far fa-comments comment-icon"> {{ recipe.comment_count }}</i>
+                            </span>
+                            <span class="float-end">
+                                <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
+                                    data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:4 %}
+            </div>
+            <div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation" style="margin-bottom: 55px;">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+            </li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+            <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+            </li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block copyright %}
+    Made by CCRS Solutions&copy; 2025
+{% endblock %}

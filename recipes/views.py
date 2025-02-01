@@ -9,6 +9,11 @@ from .forms import CommentForm
 from django.http import JsonResponse
 from django.db.models import Count
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from django.urls import reverse
+
+from django.views.generic import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def under_construction(request):
     return render(request, 'under_construction.html')
@@ -108,3 +113,33 @@ def toggle_favorite(request, recipe_id):
         recipe.favorites.add(request.user)
         is_favorite = True
     return JsonResponse({'is_favorite': is_favorite})
+
+# @login_required
+# def favorite_recipes(request):
+#     user = request.user
+#     favorite_recipes_list = user.favorite_recipes.all()  # Assuming there is a many-to-many relationship between User and Recipe
+#     paginator = Paginator(favorite_recipes_list, 6)  # Show 6 recipes per page
+
+#     page_number = request.GET.get('page')
+#     favorite_recipes = paginator.get_page(page_number)
+
+#     context = {
+#         'favorite_recipes': favorite_recipes
+#     }
+#     return render(request, 'recipes/favorite_recipes.html', context)
+
+
+class FavoriteRecipesView(LoginRequiredMixin, ListView):
+    model = Recipe
+    template_name = 'recipes/favorite_recipes.html'
+    context_object_name = 'favorite_recipes'
+    paginate_by = 5  # Número de receitas por página
+    
+
+    def get_queryset(self):
+        return self.request.user.favorite_recipes.all().annotate(comment_count=Count('comments'))
+
+    def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context['favorite_url'] = reverse('favorite_recipes')  # Adiciona 'favorite_url' ao contexto
+            return context
