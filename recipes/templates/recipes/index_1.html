@@ -68,7 +68,7 @@
     </div>
 </div>
 <div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
-    {% for recipe in recipe_list %}
+    {% for recipe in most_commented_recipes %}
     <div class="col">
         <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
             <div class="card section-dark">

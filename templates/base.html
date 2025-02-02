@@ -30,14 +30,32 @@
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <form class="d-flex" method="get" action="{% url 'search_recipes' %}">
+                    <input class="form-control me-2" type="search" placeholder="Search recipes by name or ingredient" aria-label="Search" name="q">
+                    
+                    <button class="btn" type="submit">
+                        search
+                    </button>
+                    <i class="fa-light fa-magnifying-glass"></i>
+                    <!-- <button class="btn search" type="submit">Search</button> -->
+                </form>
+            </div>           
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">
-                <span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></a>
-                <!-- <span class="brand">MyMeals</span></a> -->
+
+                <!-- <span class="brand">c<span class="red-o">o</span>de<span
+                        class="thin">|star</span></span></a> -->
+
+                <!-- <img src="{% static 'images/my-recipes.png' %}" alt="My Recipes Logo" class="brand-logo"> -->
+                 <span class="brand-logo"><span class="red-o">My</span>Recipes</span>
+                </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -84,8 +102,9 @@
             </div>
         </div>
     </nav>
+    
     <!-- displaying Django messages -->
-    <div class="container">
+    <div class="container">       
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 {% for message in messages %}
@@ -151,6 +170,7 @@
         </script>
     <script src="{% static 'js/script.js' %}"></script>
     {% block extras %}
+    
     {% endblock %}
 </body>
 

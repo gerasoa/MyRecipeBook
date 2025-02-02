@@ -1,7 +1,142 @@
-body {
-    background-color: #F9FAFC;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.montserrat-bold {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 800; /* Bold weight */
+  font-style: normal;
 }
 
+.nav-link.active {
+    font-weight: bold;
+    color: #007bff; /* Ajuste a cor conforme necessário */
+}
+
+h1 {
+    font-family: "Montserrat", serif;    
+    font-weight: 800; 
+    color: rgb(78, 57, 105);
+}
+
+h2 {
+    font-family: "Montserrat", serif;    
+    font-weight: 500; 
+    font-size: 1.5rem;
+    color: rgb(78, 57, 105);
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 26px;     
+}
+
+h3 {
+    font-family: "Montserrat", serif;    
+    font-weight: 700; 
+    font-size: 1.2rem;
+    color: rgb(78, 57, 105);
+    letter-spacing: -0.5px;
+    position: relative;
+    margin-bottom: 26px;   
+}
+
+
+h2::before {
+    content: "";
+    position: absolute;
+    bottom: -7px; /* Customizable distance from the base of the text */
+    left: 0;
+    width: 60px; /* Customizable length of the line */
+    height: 4px;
+    background-color: orange;    
+}
+
+.decoration-none {
+    text-decoration: none;
+}
+
+.chef-name {
+    font-family: "Montserrat", serif;    
+    font-weight: 700; 
+    font-size: 1.2rem;
+    color: rgb(78, 57, 105);
+   
+    position: relative;
+    margin-bottom: 26px;      
+}
+
+.img-circle {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    /* background-color:rgb(247, 246, 248); */
+    background-color:rgb(247, 246, 248);
+    color: rgb(47,34,64);
+    font-size: 1rem;
+    line-height: 1.6;
+    
+}
+
+  /* .row, [class^="col"] {
+    padding: 15px;
+    margin: 0px;    
+    border: 1px solid rgb(92, 6, 6);   
+}   */
+
+.comment {
+    padding: 15px 4px 15px 4px;
+    margin-bottom: 15px;    
+    /* border: 1px solid gray;    */
+    border-bottom: 1px solid rgb(47, 34, 64);
+}
+
+.comment strong {
+    text-transform: uppercase;
+}
+
+.comment-icon {
+    color: rgb(255, 66, 0); /* Altere #ff0000 para a cor desejada */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+.card-body-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinha os itens ao centro verticalmente */
+    padding: 10px 20px; /* Ajuste conforme necessário */
+}
+
+.float-start {
+    float: left;
+}
+
+.float-end {
+    float: right;
+}
+
+
+.section-dark { 
+    background-color: rgb(247,246,248);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.posted {
+    font-size: 0.8rem; /* Different font size */
+}
+
+
+
+/* fim do meu, daqui para baixo e o que ja tinha no sistema  */
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
@@ -67,7 +202,7 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #753822;
     color: white;
     position: relative;
 }
@@ -84,7 +219,7 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #753822;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);

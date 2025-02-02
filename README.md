@@ -84,6 +84,11 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
 
+## IMAGES
+
+Chefs - 160x160 pixels
+Chefs detail - 300x300 pixels 
+
 ## REFERENCES
 
 [https://lucid.app/](https://lucid.app/)

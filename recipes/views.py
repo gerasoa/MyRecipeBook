@@ -11,6 +11,7 @@ from django.db.models import Count
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.urls import reverse
+from django.db.models import Q
 
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -30,12 +31,14 @@ class RecipeList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['recent_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).order_by('-created_on')[:4]
+        context['most_commented_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).order_by('-comment_count')[:4]
         if self.request.user.is_authenticated:
             context['favorite_recipes'] = self.request.user.favorite_recipes.annotate(comment_count=Count('comments'))
         else:
             context['favorite_recipes'] = Recipe.objects.none()
         return context
-    
+        
+        
   
 
 def Recipe_detail(request, slug):
@@ -143,3 +146,19 @@ class FavoriteRecipesView(LoginRequiredMixin, ListView):
             context = super().get_context_data(**kwargs)
             context['favorite_url'] = reverse('favorite_recipes')  # Adiciona 'favorite_url' ao contexto
             return context
+    
+
+# def search_recipes(request):
+#     query = request.GET.get('q')
+#     results = Recipe.objects.filter(title__icontains=query) if query else Recipe.objects.none()
+#     return render(request, 'recipes/search_results.html', {'results': results, 'query': query})
+
+def search_recipes(request):
+    query = request.GET.get('q')
+    if query:
+        results = Recipe.objects.filter(
+            Q(title__icontains=query) | Q(description__icontains=query) | Q(ingredients__icontains=query)
+        )
+    else:
+        results = Recipe.objects.none()
+    return render(request, 'recipes/search_results.html', {'results': results, 'query': query})

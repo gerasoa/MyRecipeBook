@@ -1,14 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container">
     <h1>Our Chefs</h1>
-    <ul>
+    <div class="row">
         {% for chef in chefs %}
-        <li>
-            <a href="{% url 'chef_detail' chef.slug %}">{{ chef.name }}</a>
-        </li>
+        <div class="col-md-2 text-center">
+            <a class="decoration-none" href="{% url 'chef_detail' chef.slug %}">
+                <!-- <img src="{{ chef.photo.url }}" class="img-fluid rounded-circle" alt="{{ chef.name }}"> -->
+                
+                {% if chef.photo_small %}
+                    <img src="{{ chef.photo_small.url }}" alt="{{ chef.user.get_full_name }}" class="img-fluid img-circle" width="160" height="160">
+                {% else %}
+                    <img src="{% static 'images/default_chef_small.jpg' %}" alt="{{ chef.user.get_full_name }}" class="img-fluid img-circle" width="160" height="160">
+                {% endif %}
+                
+                <p class="chef-name">{{ chef.name }}</p>
+            </a>
+        </div>
+        {% if forloop.counter|divisibleby:5 and not forloop.last %}
+    </div>
+    <div class="row">
+        {% endif %}
         {% endfor %}
-    </ul>
-</div>
-{% endblock %}
+    </div>
+</div>{% endblock %}

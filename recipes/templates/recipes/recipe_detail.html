@@ -27,7 +27,8 @@
 
       <strong class="text-secondary">
         <i class="far fa-comments"></i> <a href="#comments-section">see {{ comment_count }} comments</a>
-
+        <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
+        data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></i>
       </strong>
     </div>
     <div class="col col-md-4">
@@ -130,6 +131,34 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.favorite-icon').forEach(function (icon) {
+          icon.addEventListener('click', function () {
+              var recipeId = this.getAttribute('data-recipe-id');
+              var iconElement = this;
+              fetch(`/recipes/toggle_favorite/${recipeId}/`, {
+                  method: 'POST',
+                  headers: {
+                      'X-CSRFToken': '{{ csrf_token }}',
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({})
+              })
+                  .then(response => response.json())
+                  .then(data => {
+                      if (data.is_favorite) {
+                          iconElement.classList.remove('far');
+                          iconElement.classList.add('fas');
+                      } else {
+                          iconElement.classList.remove('fas');
+                          iconElement.classList.add('far');
+                      }
+                  });
+          });
+      });
+  });
+</script>
 {% endblock content %}
 
 {% block extras %}

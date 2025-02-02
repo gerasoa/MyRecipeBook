@@ -8,6 +8,17 @@
   font-style: normal;
 }
 
+.brand-logo {
+    font-family: "Montserrat", sans-serif;
+    /* background-color:rgb(247, 246, 248); */
+    /* background-color:red; */
+    
+    color: rgb(122, 68, 192);
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1.6;
+}
+
 .nav-link.active {
     font-weight: bold;
     color: #007bff; /* Ajuste a cor conforme necessário */
@@ -50,6 +61,25 @@ h2::before {
     background-color: orange;    
 }
 
+.decoration-none {
+    text-decoration: none;
+}
+
+.chef-name {
+    font-family: "Montserrat", serif;    
+    font-weight: 700; 
+    font-size: 1.2rem;
+    color: rgb(78, 57, 105);
+   
+    position: relative;
+    margin-bottom: 26px;      
+}
+
+.img-circle {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     /* background-color:rgb(247, 246, 248); */
@@ -59,6 +89,20 @@ body {
     line-height: 1.6;
     
 }
+
+
+.search {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+
+
 
   /* .row, [class^="col"] {
     padding: 15px;
@@ -117,13 +161,14 @@ body {
 
 
 
+
 /* fim do meu, daqui para baixo e o que ja tinha no sistema  */
-.brand {
+/* .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
-}
+} */
 
 .red-o {
     color: #E84610;
