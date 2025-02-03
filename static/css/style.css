@@ -129,18 +129,18 @@ body {
     color: #f5b301;
 } */
 
-.star-rating {
+.star-rating-total, .star-rating {
     direction: rtl;
     display: inline-block;
     font-size: 0.8em;
 }
 
-.star-rating .fa-star {
+.star-rating-total, .star-rating .fa-star {
     cursor: pointer;
     color: #ddd;
 }
 
-.star-rating .fa-star.checked {
+.star-rating-total, .star-rating .fa-star.checked {
     color: #f5b301;
 }
 
@@ -199,6 +199,27 @@ body {
     font-size: 0.8rem; /* Different font size */
 }
 
+.recipe-info {
+    /* border: 1px solid red; */
+    margin: 2px 
+}
+
+.recipe-info ul {
+    list-style-type: none; /* Remove os bullets dos itens da lista */
+    padding: 0;
+}
+
+.recipe-info ul li {
+     padding: 20px 0;
+     margin: 0;
+     vertical-align: middle;
+} 
+
+.recipe-info ul li i{
+    color: rgb(255, 66, 0);
+    font-size: 1.4rem;
+    vertical-align: middle;
+} 
 
 
 
@@ -212,6 +233,11 @@ body {
 
 .red-o {
     color: #E84610;
+}
+
+.btn {
+    background-color: #E84610;
+    color: whitesmoke;
 }
 
 .thin {
@@ -312,17 +338,17 @@ body {
     color: lightgray;
 }
 
-.btn-signup,
+/* .btn-signup,
 .btn-edit {
     background-color: #188181;
     color: #fff;
-}
+} */
 
-.btn-signup:hover,
+/* .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
     color: #23BBBB;
-}
+} */
 
 .link {
     color: #23BBBB;

@@ -55,10 +55,11 @@ def Recipe_detail(request, slug):
         if 'score' in request.POST:
             rating_form = RatingForm(request.POST)
             if rating_form.is_valid():
-                rating = rating_form.save(commit=False)
-                rating.recipe = recipe
-                rating.user = request.user
-                rating.save()
+                rating, created = Rating.objects.update_or_create(
+                    recipe=recipe,
+                    user=request.user,
+                    defaults={'score': rating_form.cleaned_data['score']}
+                )
                 # Atualizar a média das avaliações
                 recipe.average_rating = recipe.ratings.aggregate(Avg('score'))['score__avg']
                 recipe.save()
