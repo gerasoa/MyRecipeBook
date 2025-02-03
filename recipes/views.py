@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 # from django.http import HttpResponse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Recipe, Comment
+from .models import Recipe, Comment, Rating
 from chefs.models import ChefProfile 
 from .forms import CommentForm
 from django.http import JsonResponse
@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.urls import reverse
 from django.db.models import Q
+from .forms import RatingForm
+from django.db.models import Avg
 
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -31,16 +33,18 @@ class RecipeList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['recent_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).order_by('-created_on')[:4]
-        context['most_commented_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).order_by('-comment_count')[:4]
+                
+        # context['highest_rated_recipes'] = Recipe.objects.annotate(avg_rating=Avg('ratings__score')).order_by('avg_rating')[:4]
+        context['highest_rated_recipes'] = Recipe.objects.annotate(avg_rating=Avg('ratings__score')).order_by('avg_rating')[:4]
+
         if self.request.user.is_authenticated:
-            context['favorite_recipes'] = self.request.user.favorite_recipes.annotate(comment_count=Count('comments'))
+            context['favorite_recipes'] = self.request.user.favorite_recipes.annotate(comment_count=Count('comments'))[:4]
         else:
             context['favorite_recipes'] = Recipe.objects.none()
         return context
         
         
   
-
 def Recipe_detail(request, slug):
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
@@ -48,17 +52,31 @@ def Recipe_detail(request, slug):
     comment_count = recipe.comments.filter(approved=True).count()
 
     if request.method == "POST":
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.author = request.user
-            comment.recipe = recipe
-            comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
-    )
-    comment_form = CommentForm()
+        if 'score' in request.POST:
+            rating_form = RatingForm(request.POST)
+            if rating_form.is_valid():
+                rating = rating_form.save(commit=False)
+                rating.recipe = recipe
+                rating.user = request.user
+                rating.save()
+                # Atualizar a média das avaliações
+                recipe.average_rating = recipe.ratings.aggregate(Avg('score'))['score__avg']
+                recipe.save()
+                messages.add_message(request, messages.SUCCESS, 'Rating submitted successfully')
+                return redirect('recipe_detail', slug=recipe.slug)
+        else:
+            comment_form = CommentForm(data=request.POST)
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                comment.author = request.user
+                comment.recipe = recipe
+                comment.save()
+                messages.add_message(request, messages.SUCCESS, 'Comment submitted and awaiting approval')
+                return redirect('recipe_detail', slug=recipe.slug)
+    else:
+        rating_form = RatingForm()
+        comment_form = CommentForm()
+
     return render(
         request,
         "recipes/recipe_detail.html",
@@ -67,8 +85,38 @@ def Recipe_detail(request, slug):
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
+            "rating_form": rating_form,
         },
     )
+
+# def Recipe_detail(request, slug):
+#     queryset = Recipe.objects.filter(status=1)
+#     recipe = get_object_or_404(queryset, slug=slug)
+#     comments = recipe.comments.all().order_by("-created_on")
+#     comment_count = recipe.comments.filter(approved=True).count()
+
+#     if request.method == "POST":
+#         comment_form = CommentForm(data=request.POST)
+#         if comment_form.is_valid():
+#             comment = comment_form.save(commit=False)
+#             comment.author = request.user
+#             comment.recipe = recipe
+#             comment.save()
+#             messages.add_message(
+#                 request, messages.SUCCESS,
+#                 'Comment submitted and awaiting approval'
+#     )
+#     comment_form = CommentForm()
+#     return render(
+#         request,
+#         "recipes/recipe_detail.html",
+#         {
+#             "recipe": recipe,
+#             "comments": comments,
+#             "comment_count": comment_count,
+#             "comment_form": comment_form,
+#         },
+#     )
 
 def comment_edit(request, slug, comment_id):
 
@@ -162,3 +210,23 @@ def search_recipes(request):
     else:
         results = Recipe.objects.none()
     return render(request, 'recipes/search_results.html', {'results': results, 'query': query})
+
+# def recipe_detail(request, pk):
+#     recipe = get_object_or_404(Recipe, pk=pk)
+#     if request.method == 'POST':
+#         rating_form = RatingForm(request.POST)
+#         if rating_form.is_valid():
+#             rating = rating_form.save(commit=False)
+#             rating.recipe = recipe
+#             rating.user = request.user
+#             rating.save()
+#             # Atualizar a média das avaliações
+#             recipe.average_rating = recipe.ratings.aggregate(Avg('score'))['score__avg']
+#             recipe.save()
+#             return redirect('recipe_detail', pk=recipe.pk)
+#     else:
+#         rating_form = RatingForm()
+#     return render(request, 'recipes/recipe_detail.html', {
+#         'recipe': recipe,
+#         'rating_form': rating_form,
+#     })

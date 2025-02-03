@@ -99,10 +99,50 @@ body {
     padding: 0;
     margin: 0;
     outline: none;
+    /* Adicionando propriedades para remover efeitos de botão */
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
+/* .star-rating {
+    direction: rtl;
+    display: inline-block;
+    font-size: 2em;
+}
 
+.star-rating .fa-star {
+    cursor: pointer;
+    color: #ddd;
+}
 
+.star-rating .fa-star {
+    color: #ddd;
+}
+
+.star-rating .fa-star.checked {
+    color: #f5b301;
+}
+
+.star-rating .fa-star.checked {
+    color: #f5b301;
+} */
+
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+    font-size: 0.8em;
+}
+
+.star-rating .fa-star {
+    cursor: pointer;
+    color: #ddd;
+}
+
+.star-rating .fa-star.checked {
+    color: #f5b301;
+}
 
   /* .row, [class^="col"] {
     padding: 15px;

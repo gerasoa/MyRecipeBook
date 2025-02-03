@@ -29,7 +29,22 @@
         <i class="far fa-comments"></i> <a href="#comments-section">see {{ comment_count }} comments</a>
         <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
         data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></i>
-      </strong>
+      </strong>  
+      
+      <div class="star-rating">
+        <form method="post" action="{% url 'recipe_detail' recipe.slug %}">
+            {% csrf_token %}
+            <span class="fa fa-star" data-rating="1"></span>
+            <span class="fa fa-star" data-rating="2"></span>
+            <span class="fa fa-star" data-rating="3"></span>
+            <span class="fa fa-star" data-rating="4"></span>
+            <span class="fa fa-star" data-rating="5"></span>
+            <input type="hidden" name="score" class="rating-value" value="0">
+            <button type="submit" class="btn btn-primary">Submit Rating</button>
+        </form>
+    </div>
+    <p>Average Rating: {{ recipe.average_rating }}</p>
+
     </div>
     <div class="col col-md-4">
       <p>Recipe Info</p>
@@ -155,6 +170,27 @@
                           iconElement.classList.add('far');
                       }
                   });
+          });
+      });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const stars = document.querySelectorAll('.star-rating .fa-star');
+      const ratingValue = document.querySelector('.rating-value');
+
+      stars.forEach(star => {
+          star.addEventListener('click', function () {
+              const rating = this.getAttribute('data-rating');
+              ratingValue.value = rating;
+
+              stars.forEach(s => {
+                  s.classList.remove('checked');
+              });
+
+              for (let i = 0; i < rating; i++) {
+                  stars[i].classList.add('checked');
+              }
           });
       });
   });
