@@ -16,7 +16,12 @@
         <div class="col">
             <div class="card section-dark h-100 d-flex flex-column">
                 <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
-                    <img src="/static/images/default.jpg" class="card-img-top" alt="{{recipe.title}}" height="200px">
+                    
+                    <!-- <img src="/static/images/default.jpg" class="card-img-top" alt="{{recipe.title}}" height="200px"> -->
+                    <img class="img-list card-img-top" src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" style="">
+                    
+                    
+
                     <div class="card-body flex-grow-1">
                         <h3 class="card-title text-start">{{ recipe.title }}</h3>
                     </div>

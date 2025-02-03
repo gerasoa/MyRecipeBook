@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from chefs.models import ChefProfile
 from django import forms
 # from .models import Rating
+from cloudinary.models import CloudinaryField
 
 STATUS = (
     (0, "Draft"), 
@@ -19,6 +20,7 @@ DIFFICULTY = (
 class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField()
+    photo = CloudinaryField('image', null=True, blank=True)
     favorites = models.ManyToManyField(User, related_name='favorite_recipes', blank=True)
     chef = models.ForeignKey(
         ChefProfile, on_delete=models.CASCADE, related_name="book_recipes"   

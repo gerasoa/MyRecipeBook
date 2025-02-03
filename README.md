@@ -88,6 +88,8 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 Chefs - 160x160 pixels
 Chefs detail - 300x300 pixels 
+https://www.pexels.com/photo/fish-salad-dish-262959/
+https://www.pexels.com/search/food/
 
 ## REFERENCES
 

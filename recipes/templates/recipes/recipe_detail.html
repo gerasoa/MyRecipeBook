@@ -22,7 +22,18 @@
   <div class="row mb-5">
     <div class="col col-md-8">
       <!-- Image -->
-      <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+
+
+      {% if recipe.photo.url %}
+        <img class="img-detail" src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" style="">
+      {% else %}
+        <img class="img-detail"  src="{% static 'images/default.jpg' %}" alt="{{ recipe.title }}">
+      {% endif %}
+
+      <!-- <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder"> -->
+      <!-- <img src="{{ recipe.photo.url }}" class="card-img-top" alt="{{ recipe.title }}" > -->
+
+
 
       <!-- <strong class="text-secondary">
         <i class="far fa-comments"></i> <a href="#comments-section">see {{ comment_count }} comments</a>

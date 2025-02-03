@@ -25,7 +25,7 @@ def under_construction(request):
 class RecipeList(generic.ListView):
     model = Recipe
     context_object_name = 'recipe_list'
-    template_name = "recipes/index_1.html"
+    template_name = "recipes/index.html"
     
     def get_queryset(self):
         return Recipe.objects.filter(status=1).annotate(comment_count=Count('comments')).order_by('-created_on')[:4]
