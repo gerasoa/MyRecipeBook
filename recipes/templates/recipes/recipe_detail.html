@@ -184,8 +184,8 @@
       });
     });
   });
-</script> -->
-<!-- <script nonce="{{ nonce }}">
+</script>
+<script nonce="{{ nonce }}">
   document.addEventListener('DOMContentLoaded', function () {
     const stars = document.querySelectorAll('.star-rating .fa-star');
     const ratingValue = document.querySelector('.rating-value');
@@ -209,5 +209,6 @@
 {% endblock content %}
 
 {% block extras %}
-<!-- <script nonce="{{ nonce }}" src="{% static 'js/comments.js' %}"></script> -->
+<script nonce="{{ nonce }}" src="{% static 'js/comments.js' %}"></script>
+<script nonce="{{ nonce }}" src="{% static 'js/script.js' %}"></script>
 {% endblock %}
