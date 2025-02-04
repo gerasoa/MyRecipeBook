@@ -87,7 +87,7 @@ body {
     color: rgb(47,34,64);
     font-size: 1rem;
     line-height: 1.6;
-    
+    margin-top: 26.8px;
 }
 
 
@@ -235,6 +235,22 @@ body {
     width: 100%;
 }
 
+.dark-bg {
+    background-color: #445261;
+}
+
+
+/* Tablets (min-width: 601px) and (max-width: 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+}
+
+/* Laptops (min-width: 1025px) */
+@media (min-width: 1025px) {
+    
+}
+
+
 /* fim do meu, daqui para baixo e o que ja tinha no sistema  */
 /* .brand {
     font-family: Lato, sans-serif;
@@ -242,7 +258,7 @@ body {
     font-weight: 700;
     color: #4A4A4F;
 } */
-
+/* 
 .red-o {
     color: #E84610;
 }
@@ -260,9 +276,7 @@ body {
     background-color: #fff;
 }
 
-.dark-bg {
-    background-color: #445261;
-}
+
 
 .main-bg {
     background-color: #F9FAFC;
@@ -360,7 +374,7 @@ body {
 .btn-signup:active {
     background-color: #fff;
     color: #23BBBB;
-} */
+} 
 
 .link {
     color: #23BBBB;
@@ -397,4 +411,4 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
-}
+} */

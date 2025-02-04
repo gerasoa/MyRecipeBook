@@ -31,28 +31,13 @@
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-    <div class="container">
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <form class="d-flex" method="get" action="{% url 'search_recipes' %}">
-                    <input class="form-control me-2" type="search" placeholder="Search recipes by name or ingredient" aria-label="Search" name="q">
-                    <button class="search" type="submit" aria-label="Search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
-            </div>           
-        </div>
-    </div>
+
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+     
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">
-
-                <!-- <span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></a> -->
-
-                <!-- <img src="{% static 'images/my-recipes.png' %}" alt="My Recipes Logo" class="brand-logo"> -->
-                 <span class="brand-logo"><span class="red-o">My</span>Recipes</span>
+                <span class="brand-logo"><span class="red-o">My</span>Recipes</span>
                 </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +85,20 @@
             </div>
         </div>
     </nav>
-    
+    <div class="container mt-5">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div>
+                    <form class="d-flex" method="get" action="{% url 'search_recipes' %}">
+                        <input class="form-control me-2" type="search" placeholder="Search recipes by name or ingredient" aria-label="Search" name="q">
+                        <button class="search" type="submit" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>           
+        </div>
+    </div>
     <!-- displaying Django messages -->
     <div class="container">       
         <div class="row">
@@ -141,7 +139,7 @@
             </div>
         </div>
     </div>
-    <main class="flex-shrink-0 main-bg">
+    <main class="flex-shrink-0 main-bg mt-5">
 
         {% block content %}
         <!-- Content Goes here -->

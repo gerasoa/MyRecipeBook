@@ -72,6 +72,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'csp.middleware.CSPMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,6 +82,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
+
+# Configuração da Política de Segurança de Conteúdo (CSP)
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'", 'https://cdnjs.cloudflare.com', 'https://stackpath.bootstrapcdn.com', 'https://ajax.googleapis.com', 'https://code.jquery.com', 'https://cdn.jsdelivr.net')
+CSP_STYLE_SRC = ("'self'", 'https://cdnjs.cloudflare.com', 'https://stackpath.bootstrapcdn.com', 'https://fonts.googleapis.com', 'https://maxcdn.bootstrapcdn.com', 'https://cdn.jsdelivr.net')
+CSP_IMG_SRC = ("'self'", 'data:', 'http://res.cloudinary.com', 'https://127.0.0.1:8000')
+CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com', 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com')
+CSP_CONNECT_SRC = ("'self'",)
+CSP_FRAME_SRC = ("'self'",)
+CSP_OBJECT_SRC = ("'none'",)
+CSP_BASE_URI = ("'self'",)
+CSP_FORM_ACTION = ("'self'",)
 
 ROOT_URLCONF = 'my_recipes_book.urls'
 
