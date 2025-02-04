@@ -14,7 +14,7 @@ from django.urls import reverse
 from django.db.models import Q
 from .forms import RatingForm
 from django.db.models import Avg
-
+from django.conf import settings
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -87,6 +87,7 @@ def Recipe_detail(request, slug):
             "comment_count": comment_count,
             "comment_form": comment_form,
             "rating_form": rating_form,
+            # 'nonce': settings.nonce,
         },
     )
 

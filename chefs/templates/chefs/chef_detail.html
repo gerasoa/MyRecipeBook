@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 <!-- { % block content % }
 <div class="container">
     <h1>{{ chef.name }}</h1>
@@ -30,9 +30,10 @@
             <h2>Recipes</h2>
         </div>
     </div>  
-    <div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4">
         {% for recipe in recipes %}
-        <div class="col">
+        {% include 'recipes/card.html' %}
+        <!-- <div class="col">
             <div class="card section-dark h-100 d-flex flex-column">
                 <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
                     <img src="/static/images/default.jpg" class="card-img-top" alt="{{recipe.title}}" height="200px">
@@ -46,13 +47,13 @@
                     </span>
                     <span class="float-end">
                         <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
-                            data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></i>
+                            data-recipe-id="{{ recipe.id }}" ></i>
                     </span>
                 </div>
             </div>
-        </div>
+        </div> -->
     {% endfor %}
-    <script>
+    <script nonce="{{ nonce }}">
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.favorite-icon').forEach(function (icon) {
                 icon.addEventListener('click', function () {
