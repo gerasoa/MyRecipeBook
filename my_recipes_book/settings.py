@@ -14,19 +14,6 @@ from pathlib import Path
 import os
 import dj_database_url
 
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-
-# Configuração do Cloudinary
-cloudinary.config(
-  cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
-  api_key=os.environ.get('CLOUDINARY_API_KEY'),
-  api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
-  secure=True  # Certifique-se de que o parâmetro 'secure' está definido como True
-)
-
-
 if os.path.isfile("env.py"):
    import env
 
@@ -44,7 +31,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True 
  
 ALLOWED_HOSTS = ['.herokuapp.com',
                  '127.0.0.1']
@@ -178,5 +165,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
