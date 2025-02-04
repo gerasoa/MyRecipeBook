@@ -8,9 +8,9 @@
            
            
         {% if recipe.photo.url %}
-            <img class="img-list" src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
+            <img class="img-list" src="{{ recipe.photo.url }}" alt="image of a {{ recipe.title }}">
         {% else %}
-            <img class="img-list"  src="{% static 'images/default.jpg' %}" alt="{{ recipe.title }}">
+            <img class="img-list"  src="{% static 'images/default.jpg' %}" alt="image of a {{ recipe.title }}">
         {% endif %}
            
            
