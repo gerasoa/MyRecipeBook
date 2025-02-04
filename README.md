@@ -84,18 +84,82 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
 
+
+
+
+
+
+
+## TECHNOLOGIES USED
+
+**HTML5**: The standard markup language for creating web pages, providing the structure and content of the site.
+
+**CSS3**: A style sheet language used for describing the presentation of a document written in HTML, enabling responsive and visually appealing designs.
+
+**JavaScript**: A programming language that enables interactive web pages, enhancing user experience with dynamic content and features.
+
+**React**: A JavaScript library for building user interfaces, allowing for the creation of reusable UI components and efficient rendering.
+
+**Node.js**: A JavaScript runtime built on Chrome's V8 engine, used for building scalable network applications and server-side scripting.
+
+**Express.js**: A web application framework for Node.js, providing a robust set of features for building web and mobile applications.
+
+**MongoDB**: A NoSQL database program that uses JSON-like documents with optional schemas, ideal for handling large volumes of data and scalability.
+
+**Mongoose**: An Object Data Modeling (ODM) library for MongoDB and Node.js, providing a straightforward, schema-based solution to model application data.
+
+**JWT (JSON Web Tokens)**: A compact, URL-safe means of representing claims to be transferred between two parties, used for secure user authentication.
+
+**Bcrypt**: A password-hashing function designed for secure password storage, ensuring user credentials are protected.
+
+**GitHub**: A platform for version control and collaboration, allowing multiple developers to work on projects simultaneously and manage code changes.
+
+**Heroku**: A cloud platform as a service (PaaS) supporting several programming languages, used for deploying, managing, and scaling web applications.
+
+**Pexels**: A free stock photo and video website, providing high-quality images used within the application for visual enhancement.
+
+**Cloudinary**: Media management service that allows uploading, storing, manipulating, and delivering images and videos.
+
+**Crispy-bootstrap5**: Django package that integrates Django forms with Bootstrap 5, allowing for easy and consistent form rendering.
+
+**Dj-database-url**: Utility for configuring database URLs in Django.
+
+**Dj3-cloudinary-storage**: Django package that integrates Django media storage with the Cloudinary service.
+
+**Django**: High-level web framework for Python that enables rapid and clean development of web applications.
+
+**Django-crispy-forms**: Django package that makes it easy to create elegant and reusable forms.
+
+**Django-allauth**: Django application for authentication, registration, and account management.
+
+**Django-summernote**: WYSIWYG editor based on Summernote for integration with Django.
+
+**Gunicorn**: WSGI HTTP server for Python applications, used to deploy Django applications.
+
+**Pillow**: Image processing library for Python.
+
+**Psycopg2**: PostgreSQL database adapter for Python.
+
+**Python3-openid**: Library for supporting the OpenID protocol.
+
+**Tzdata**: Time zone database.
+
+**Whitenoise**: Library for serving static files in Django applications.
+
+## CREDITS
+
+- Project developed by the "My Meals" team.
+- Images provided by [Pexels](https://www.pexels.com/).
+- Diagrams created using [Lucidchart](https://lucid.app/) and [dbdiagram.io](https://dbdiagram.io/).
+- Hosted on [Heroku](https://www.heroku.com/).
+- Source code managed on [GitHub](https://github.com/).
+
+
+
+
 ## IMAGES
 
 Chefs - 160x160 pixels
 Chefs detail - 300x300 pixels 
 https://www.pexels.com/photo/fish-salad-dish-262959/
 https://www.pexels.com/search/food/
-
-## REFERENCES
-
-[https://lucid.app/](https://lucid.app/)
-
-[https://dbdiagram.io/](https://dbdiagram.io/)
-
-
-## CREDITS
