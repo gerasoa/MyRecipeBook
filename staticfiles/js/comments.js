@@ -28,6 +28,7 @@ for (let button of editButtons) {
 }
 
 
+
 /**
 * Initializes deletion functionality for the provided delete buttons.
 * 
@@ -45,3 +46,5 @@ for (let button of deleteButtons) {
       deleteModal.show();
     });
   }
+
+  
