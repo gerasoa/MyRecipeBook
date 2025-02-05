@@ -14,7 +14,6 @@ from django.urls import reverse
 from django.db.models import Q
 from .forms import RatingForm
 from django.db.models import Avg
-
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 

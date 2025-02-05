@@ -23,28 +23,13 @@ from recipes import views as recipes_views
 
 
 urlpatterns = [
-    # path('', recipes.my_recipes, name='home'),  # Define a URL raiz como a view my_recipes
-    # path('', recipes.under_construction, name='under_construction'),
-    # path('recipes/', recipes.my_recipes, name='recipes'), 
-    # path('summernote/', include('django_summernote.urls')),    
-    #path("", include("recipes.urls"), name="recipes-urls"),
-    # path('about/', include('about.urls')),
-    # path('admin/', admin.site.urls),
-    # path('', include('recipes.urls'), name='home'),      
-    # path('chefs/', include('chefs.urls')),
-    # path("accounts/", include("allauth.urls")),
-
     path('admin/', admin.site.urls),
     path('recipes/', include('recipes.urls')),
     path('chefs/', include('chefs.urls')),
     path('about/', include('about.urls')),
     path("accounts/", include("allauth.urls")),
     path('summernote/', include('django_summernote.urls')), 
-    # Remova ou comente a linha abaixo que aponta para under_construction
-    # path('', views.under_construction, name='under_construction'),
-    # Adicione a linha abaixo para apontar para a view RecipeList
-    path('', recipes_views.RecipeList.as_view(), name='home'),
-    
+    path('', recipes_views.RecipeList.as_view(), name='home'),    
 ]
 
 if settings.DEBUG:

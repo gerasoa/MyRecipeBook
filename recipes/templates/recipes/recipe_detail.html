@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="container">
-  <div class="row mb-5">
+  <div claass="row mb-5">
     <div class="col-md-12">
       <!-- Recipe title -->
       <h1>{{ recipe.title }}</h1>
@@ -20,69 +20,26 @@
     </div>
   </div>
   <div class="row mb-5">
-    <div class="col col-md-8">
+    <div class="col col-sm-12 col-md-8">
       <!-- Image -->
-
-
       {% if recipe.photo.url %}
-        <img class="img-detail" src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" style="">
+        <img class="img-detail img-fluid" src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" height="10px">
       {% else %}
-        <img class="img-detail"  src="{% static 'images/default.jpg' %}" alt="{{ recipe.title }}">
-      {% endif %}
-
-      <!-- <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder"> -->
-      <!-- <img src="{{ recipe.photo.url }}" class="card-img-top" alt="{{ recipe.title }}" > -->
-
-
-
-      <!-- <strong class="text-secondary">
-        <i class="far fa-comments"></i> <a href="#comments-section">see {{ comment_count }} comments</a>
-        <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
-        data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></i>
-      </strong>  
-      <div class="star-rating">
-        {% for i in 5|range_filter %}
-            {% if i < recipe.average_rating %}
-                <span class="fa fa-star checked"></span>
-            {% else %}
-                <span class="fa fa-star"></span>
-            {% endif %}
-        {% endfor %}
-    </div>  -->
-      <!-- <div class="star-rating">
-        <form method="post" action="{% url 'recipe_detail' recipe.slug %}">
-            {% csrf_token %}
-            <span class="fa fa-star" data-rating="1"></span>
-            <span class="fa fa-star" data-rating="2"></span>
-            <span class="fa fa-star" data-rating="3"></span>
-            <span class="fa fa-star" data-rating="4"></span>
-            <span class="fa fa-star" data-rating="5"></span>
-            <input type="hidden" name="score" class="rating-value" value="0">
-            <button type="submit" class="btn btn-primary">Rate</button>
-        </form>
+        <img class="img-detail img-fluid"  src="{% static 'images/default.jpg' %}" alt="{{ recipe.title }}">
+      {% endif %}     
     </div>
-    <p>Average Rating: {{ recipe.average_rating }}</p> -->
-
-    </div>
-    <div class="col col-md-4">
-      <div class="recipe-info">
-        <p>Recipe Info</p>
+    <div class="col-sm-12 col-md-4">
+      <div class="recipe-info mt-3">
+        <h2>Recipe Info</h2>
         <ul>
           <li><i class="fa-solid fa-utensils"></i> <span>Difficulty: <strong>{{ recipe.get_difficulty_display }}</strong></span></li>
           <li><i class="fa-regular fa-clock"></i> <span>Prep time: <strong>{{ recipe.prep_time }}</strong></span></li>
           <li><span><i class="fa-solid fa-blender"></i> Cook time: <strong>{{ recipe.cook_time }}</strong></span></li>
-            <li><span><i class="fa-solid fa-martini-glass-citrus"></i>  Serving: <strong>{{ recipe.servings }}</strong></span></li>
+          <li><span><i class="fa-solid fa-martini-glass-citrus"></i>  Serving: <strong>{{ recipe.servings }}</strong></span></li>
         </ul>
       </div>
       <div class="star-rating-total recipe-info"> 
-        
-        <!-- { % for i in 1|range_filter:6 % }
-            { % if i <= recipe.average_rating % }
-                <span class="fa fa-star fa-2x checked"></span>
-            { % else % }
-                <span class="fa fa-star fa-2x"></span>
-             { % endif % }
-        { % endfor % } -->
+
     </div>
       <div class="recipe-info">
         <i class="far fa-comments"></i> <a href="#comments-section">see {{ comment_count }} comments</a>
@@ -92,39 +49,31 @@
         <div class="recipe-info  mt-4">
         </div>
         Saved <span class="fa-heart fs-5 comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
-          data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></span> 
+          data-recipe-id="{{ recipe.id }}" ></span> 
       </div>
     </div>
   </div>
   <div class="row mb-4">
-    <div class="col col-md-8">
+    <div class="col col-md-12">
       <!-- Description -->
       <h2>Presentation</h2>
       {{ recipe.description | safe }}
     </div>
   </div>
   <div class="row mb-4">
-    <div class="col col-md-8">
+    <div class="col col-md-12">
       <h2>Ingredients</h2>
       {{ recipe.ingredients | safe }}
     </div>
   </div>
   <div class="row mb-4">
-    <div class="col col-md-8">
+    <div class="col col-md-12">
       <h2>Preparation</h2>
       {{ recipe.steps | safe }}
     </div>
-  </div>
-  <!-- <div class="row">
-    <div class="col col-md-4">
-      <p>
-      <h2>Preparation</h2>
-      {{ recipe.steps | safe }}
-    </p>
-    </div>    
-  </div> -->
+  </div>  
   <div class="row mb-4">
-    <div class="col col-md-8">
+    <div class="col col-md-6">
       <h2 id="comments-section">Comments</h2>
       <!-- <div id="comments-list"> -->
       {% if comments %}
@@ -136,7 +85,7 @@
             </div>
             <span class="posted">{{ comment.created_on }}</span>
             {% if user.is_authenticated and comment.author == user %}
-              <div style="text-align: right;">
+              <div class="comment-actions">
                 <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
                 <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
               </div>
@@ -148,7 +97,7 @@
       {% endif %}
     </div>
 
-    <div class="col col-md-4">
+    <div class="col col-md-6">
       <div class="card-body star-rating">
         {% if user.is_authenticated %}
         <h3>Rate this recipe</h3>
@@ -170,7 +119,7 @@
         {% if user.is_authenticated %}
         <h3>Leave a comment:</h3>
         <p>Posting as: {{ user.username }}</p>
-        <form id="commentForm" method="post" style="margin-top: 1.3em;">
+        <form class="form-comment" id="commentForm" method="post">
           {{ comment_form | crispy }}
           {% csrf_token %}
           <button id="submitButton" type="submit" class="btn  btn-lg">Submit</button>
@@ -259,5 +208,5 @@
 {% endblock content %}
 
 {% block extras %}
-<script src="{% static 'js/comments.js' %}"></script>
+  <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
