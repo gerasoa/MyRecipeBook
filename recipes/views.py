@@ -33,8 +33,8 @@ class RecipeList(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['recent_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).order_by('-created_on')[:4]
                 
-        # context['highest_rated_recipes'] = Recipe.objects.annotate(avg_rating=Avg('ratings__score')).order_by('avg_rating')[:4]
-        context['highest_rated_recipes'] = Recipe.objects.annotate(avg_rating=Avg('ratings__score')).order_by('avg_rating')[:4]
+        context['highest_rated_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).annotate(avg_rating=Avg('ratings__score')).order_by('avg_rating')[:4]
+        #context['highest_rated_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).order_by('avg_rating')[:4]
 
         if self.request.user.is_authenticated:
             context['favorite_recipes'] = self.request.user.favorite_recipes.annotate(comment_count=Count('comments'))[:4]
