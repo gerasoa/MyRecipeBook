@@ -21,7 +21,7 @@ class PostAdmin(SummernoteModelAdmin):
 #admin.site.register(Comment)
 
 @admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(SummernoteModelAdmin):
     list_display = ('author', 'recipe', 'body', 'created_on', 'approved')
     list_filter = ('approved', 'created_on')
     search_fields = ('author', 'body')

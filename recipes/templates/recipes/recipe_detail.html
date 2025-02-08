@@ -39,7 +39,6 @@
         </ul>
       </div>
       <div class="star-rating-total recipe-info"> 
-
     </div>
       <div class="recipe-info">
         <i class="far fa-comments"></i> <a href="#comments-section">see {{ comment_count }} comments</a>
@@ -96,7 +95,6 @@
         <p>No comments yet.</p>
       {% endif %}
     </div>
-
     <div class="col col-md-6">
       <div class="card-body star-rating">
         {% if user.is_authenticated %}
@@ -110,11 +108,10 @@
           <span class="fa fa-star fa-lg" data-rating="4"></span>
           <span class="fa fa-star fa-lg" data-rating="5"></span>
           <input type="hidden" name="score" class="rating-value" value="0">
-
         </form>
         {% endif %}
       </div>
-      <!-- <p>Average Rating: {{ recipe.average_rating }}</p> -->
+      
       <div class="card-body">
         {% if user.is_authenticated %}
         <h3>Leave a comment:</h3>
@@ -132,9 +129,6 @@
       </div>
     </div>
   </div>
-  <!-- </div> -->
-  <!-- Creating New Comments -->
-
   <!-- Delete confirmation modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -183,8 +177,7 @@
       });
     });
   });
-</script>
-<script>
+
   document.addEventListener('DOMContentLoaded', function () {
     const stars = document.querySelectorAll('.star-rating .fa-star');
     const ratingValue = document.querySelector('.rating-value');
