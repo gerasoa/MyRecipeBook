@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-import random
-import string
 
 if os.path.isfile("env.py"):
    import env
@@ -41,14 +39,6 @@ ALLOWED_HOSTS = ['.herokuapp.com',
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 
                         'https://*.herokuapp.com']
 
-# Configurações de segurança para cookies
-SESSION_COOKIE_SAMESITE = 'Lax'  # Pode ser 'Strict' para mais segurança
-SESSION_COOKIE_SECURE = True  # Garante que os cookies sejam enviados apenas via HTTPS
-CSRF_COOKIE_SECURE = True  # Garante que o CSRF cookie também seja enviado apenas via HTTPS
-
-# Força todos os cookies a usarem SameSite para evitar warnings
-
-SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 # Application definition
 
@@ -82,7 +72,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'csp.middleware.CSPMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -92,37 +81,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
-
-# CLOUDINARY_URL = os.getenv("CLOUDINARY_URL", "cloudinary://467888365783851:_4IbR8TrV1eM_5izzUZj8sGP_g0@dmcftzkfg")
-
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": os.environ.get("CLOUD_NAME"),
-    "API_KEY": os.environ.get("API_KEY"),
-    "API_SECRET": os.environ.get("API_SECRET"),
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-
-
-
-# Configuração da Política de Segurança de Conteúdo (CSP)
-def generate_nonce(length=16):
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
-
-CSP_NONCE = generate_nonce()
-
-CSP_DEFAULT_SRC = ("'self'",)
-CSP_SCRIPT_SRC = (f"'self' 'nonce-{CSP_NONCE}'", 'https://cdnjs.cloudflare.com', 'https://stackpath.bootstrapcdn.com', 'https://ajax.googleapis.com', 'https://code.jquery.com', 'https://cdn.jsdelivr.net')
-CSP_STYLE_SRC = ("'self'", 'https://cdnjs.cloudflare.com', 'https://stackpath.bootstrapcdn.com', 'https://fonts.googleapis.com', 'https://maxcdn.bootstrapcdn.com', 'https://cdn.jsdelivr.net', 'unsafe-inline')
-CSP_IMG_SRC = ("'self'", 'data:', 'https://res.cloudinary.com', 'https://127.0.0.1:8000')
-CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com', 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com')
-CSP_CONNECT_SRC = ("'self'",)
-CSP_FRAME_SRC = ("'self'",)
-CSP_OBJECT_SRC = ("'none'",)
-CSP_BASE_URI = ("'self'",)
-CSP_FORM_ACTION = ("'self'",)
 
 ROOT_URLCONF = 'my_recipes_book.urls'
 
@@ -137,8 +95,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.csrf',
-                'my_recipes_book.context_processors.add_csp_nonce',
             ],
         },
     },
@@ -209,7 +165,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-<<<<<<< HEAD
-
-=======
->>>>>>> before-crash

@@ -1,16 +1,4 @@
 {% extends 'base.html' %}
-<<<<<<< HEAD
-{% load static %}
-<!-- { % block content % }
-<div class="container">
-    <h1>{{ chef.name }}</h1>
-    <img src="{{ chef.photo.url }}" alt="{{ chef.name }}" class="img-fluid">
-    <p>{{ chef.bio }}</p>
-    <p>Last updated on: {{ chef.updated_on }}</p>
-</div>
-{ % endblock % } -->
-=======
->>>>>>> before-crash
 
 {% block content %}
 <div class="container">
@@ -21,7 +9,8 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <img src="{{ chef.photo_large.url }}" alt="{{ chef.user.get_full_name }}" class="img-fluid" width="300" height="300">
+            <img src="{{ chef.photo_large.url }}" alt="{{ chef.user.get_full_name }}" class="img-fluid" width="300"
+                height="300">
         </div>
         <div class="col-md-9">
             <p>{{ chef.bio }}</p>
@@ -32,56 +21,37 @@
         <div class="col-md-12 mt-5">
             <h2>Recipes</h2>
         </div>
-    </div>  
+    </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4">
         {% for recipe in recipes %}
-        {% include 'recipes/card.html' %}
-        <!-- <div class="col">
-            <div class="card section-dark h-100 d-flex flex-column">
-                <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
-                    <img src="/static/images/default.jpg" class="card-img-top" alt="{{recipe.title}}" height="200px">
-                    <div class="card-body flex-grow-1">
-                        <h3 class="card-title text-start">{{ recipe.title }}</h3>
-                    </div>
-                </a>
-                <div class="card-body-footer mt-auto d-flex justify-content-between align-items-center">
-                    <span class="float-start">
-                        <i class="far fa-comments comment-icon"> {{ recipe.comment_count }}</i>
-                    </span>
-                    <span class="float-end">
-                        <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
-                            data-recipe-id="{{ recipe.id }}" ></i>
-                    </span>
-                </div>
-            </div>
-        </div> -->
-    {% endfor %}
-    <script nonce="{{ nonce }}">
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.favorite-icon').forEach(function (icon) {
-                icon.addEventListener('click', function () {
-                    var recipeId = this.getAttribute('data-recipe-id');
-                    var iconElement = this;
-                    fetch(`/recipes/toggle_favorite/${recipeId}/`, {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRFToken': '{{ csrf_token }}',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({})
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.is_favorite) {
-                                iconElement.classList.remove('far');
-                                iconElement.classList.add('fas');
-                            } else {
-                                iconElement.classList.remove('fas');
-                                iconElement.classList.add('far');
-                            }
-                        });
+            {% include 'recipes/card.html' %}
+        {% endfor %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('.favorite-icon').forEach(function (icon) {
+                    icon.addEventListener('click', function () {
+                        var recipeId = this.getAttribute('data-recipe-id');
+                        var iconElement = this;
+                        fetch(`/recipes/toggle_favorite/${recipeId}/`, {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRFToken': '{{ csrf_token }}',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({})
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.is_favorite) {
+                                    iconElement.classList.remove('far');
+                                    iconElement.classList.add('fas');
+                                } else {
+                                    iconElement.classList.remove('fas');
+                                    iconElement.classList.add('far');
+                                }
+                            });
+                    });
                 });
             });
-        });
-    </script>
-    {% endblock %}
+        </script>
+        {% endblock %}

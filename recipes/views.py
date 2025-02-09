@@ -13,10 +13,6 @@ from django.urls import reverse
 from django.db.models import Q
 from .forms import RatingForm
 from django.db.models import Avg
-<<<<<<< HEAD
-from django.conf import settings
-=======
->>>>>>> before-crash
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -85,7 +81,6 @@ def Recipe_detail(request, slug):
             "comment_count": comment_count,
             "comment_form": comment_form,
             "rating_form": rating_form,
-            # 'nonce': settings.nonce,
         },
     )
 
@@ -157,7 +152,7 @@ def search_recipes(request):
     if query:
         results = Recipe.objects.filter(
             Q(title__icontains=query) | Q(description__icontains=query) | Q(ingredients__icontains=query)
-        )
+        ).annotate(comment_count=Count('comments'))
     else:
         results = Recipe.objects.none()
     return render(request, 'recipes/search_results.html', {'results': results, 'query': query})

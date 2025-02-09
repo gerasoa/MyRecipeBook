@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
-{% load custom_filters %}
 {% load crispy_forms_tags %}
 {% load static %}
-
+{% load custom_filters %}
 {% block content %}
 
 <div class="container">
@@ -40,10 +39,6 @@
         </ul>
       </div>
       <div class="star-rating-total recipe-info"> 
-<<<<<<< HEAD
-
-=======
->>>>>>> before-crash
     </div>
       <div class="recipe-info">
         <i class="far fa-comments"></i> <a href="#comments-section">see {{ comment_count }} comments</a>
@@ -100,10 +95,6 @@
         <p>No comments yet.</p>
       {% endif %}
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> before-crash
     <div class="col col-md-6">
       <div class="card-body star-rating">
         {% if user.is_authenticated %}
@@ -159,7 +150,7 @@
     </div>
   </div>
 </div>
-<!-- <script nonce="{{ nonce }}">
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.favorite-icon').forEach(function (icon) {
       icon.addEventListener('click', function () {
@@ -186,12 +177,7 @@
       });
     });
   });
-<<<<<<< HEAD
-</script>
-<script nonce="{{ nonce }}">
-=======
 
->>>>>>> before-crash
   document.addEventListener('DOMContentLoaded', function () {
     const stars = document.querySelectorAll('.star-rating .fa-star');
     const ratingValue = document.querySelector('.rating-value');
@@ -211,17 +197,7 @@
       });
     });
   });
-<<<<<<< HEAD
-</script> -->
-{% endblock content %}
 
-{% block extras %}
-<script nonce="{{ nonce }}" src="{% static 'js/comments.js' %}"></script>
-<script nonce="{{ nonce }}" src="{% static 'js/script.js' %}"></script>
-{% endblock %}
-=======
-</script>
-<script>
   document.addEventListener('DOMContentLoaded', function () {
       const editButtons = document.getElementsByClassName("btn-edit");
       const commentText = document.getElementById("id_body");
@@ -264,4 +240,3 @@
 {% block extras %}
 
 {% endblock extras %}
->>>>>>> before-crash
