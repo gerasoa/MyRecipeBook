@@ -108,6 +108,39 @@ Admin & Moderation Tools
 💡 Meal Planning Tools – Generate weekly meal plans based on dietary preferences.
 
 
+## Data Model
+
+Overview
+
+The MyRecipe platform uses a structured PostgreSQL database to store and manage crucial data for recipes, users, and comments. Django migrations are employed to efficiently manage schema changes and keep the database updated as the project evolves.
+
+Data Model
+
+The main tables in the MyRecipe database are:
+
+📋 Users
+
+Stores all user information, including their name, email, and password. This table handles user authentication and permissions.
+
+🍽 Recipes
+
+Contains recipe details such as title, ingredients, instructions, and the user who created the recipe. It also stores metadata related to the recipe's category and preparation time.
+
+💬 Comments
+
+Allows users to comment on recipes, sharing their feedback, questions, and tips. Each comment is tied to a specific recipe and user, fostering interaction.
+
+📊 Database Relationships
+
+Users ↔ Recipes: A user can create multiple recipes, but each recipe is tied to a single user.
+Recipes ↔ Comments: Each recipe can have multiple comments, but each comment is linked to one recipe.
+
+Database Diagram
+
+Below is the diagram that illustrates the relationships between the tables in the MyRecipe database:
+
+![Data model](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/database-model.png)
+
 
 
 
