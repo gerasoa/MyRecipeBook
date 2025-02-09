@@ -142,6 +142,18 @@ Below is the diagram that illustrates the relationships between the tables in th
 ![Data model](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/database-model.png)
 
 
+## Authentication, Authorization & Access Control
+
+MyRecipe implements role-based authentication with specific roles for users:
+
+👤 Logged-in Users – Can browse, save, and comment on recipes.
+
+👨‍🍳 Chefs – Can submit and manage their own recipes.
+
+👑 Admin – Has full access to manage content, users, and the platform.
+
+Users can log in or register via email and password. When not logged in, the Login and Register options are available. Once logged in, the Logout option appears. Admins and Chefs have exclusive access to their dedicated admin areas, while regular users can only access the public website interface.
+
 
 
 
