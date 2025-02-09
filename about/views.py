@@ -4,7 +4,6 @@ from .forms import CollaborateForm
 from django.contrib import messages
 from django.urls import reverse
 
-# Create your views here.
 def about_view(request):
 
     if request.method == "POST":

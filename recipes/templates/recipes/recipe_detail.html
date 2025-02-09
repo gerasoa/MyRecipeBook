@@ -40,7 +40,10 @@
         </ul>
       </div>
       <div class="star-rating-total recipe-info"> 
+<<<<<<< HEAD
 
+=======
+>>>>>>> before-crash
     </div>
       <div class="recipe-info">
         <i class="far fa-comments"></i> <a href="#comments-section">see {{ comment_count }} comments</a>
@@ -97,7 +100,10 @@
         <p>No comments yet.</p>
       {% endif %}
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> before-crash
     <div class="col col-md-6">
       <div class="card-body star-rating">
         {% if user.is_authenticated %}
@@ -111,11 +117,10 @@
           <span class="fa fa-star fa-lg" data-rating="4"></span>
           <span class="fa fa-star fa-lg" data-rating="5"></span>
           <input type="hidden" name="score" class="rating-value" value="0">
-
         </form>
         {% endif %}
       </div>
-      <!-- <p>Average Rating: {{ recipe.average_rating }}</p> -->
+      
       <div class="card-body">
         {% if user.is_authenticated %}
         <h3>Leave a comment:</h3>
@@ -133,9 +138,6 @@
       </div>
     </div>
   </div>
-  <!-- </div> -->
-  <!-- Creating New Comments -->
-
   <!-- Delete confirmation modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -184,8 +186,12 @@
       });
     });
   });
+<<<<<<< HEAD
 </script>
 <script nonce="{{ nonce }}">
+=======
+
+>>>>>>> before-crash
   document.addEventListener('DOMContentLoaded', function () {
     const stars = document.querySelectorAll('.star-rating .fa-star');
     const ratingValue = document.querySelector('.rating-value');
@@ -205,6 +211,7 @@
       });
     });
   });
+<<<<<<< HEAD
 </script> -->
 {% endblock content %}
 
@@ -212,3 +219,49 @@
 <script nonce="{{ nonce }}" src="{% static 'js/comments.js' %}"></script>
 <script nonce="{{ nonce }}" src="{% static 'js/script.js' %}"></script>
 {% endblock %}
+=======
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const editButtons = document.getElementsByClassName("btn-edit");
+      const commentText = document.getElementById("id_body");
+      const commentForm = document.getElementById("commentForm");
+      const submitButton = document.getElementById("submitButton");
+  
+      const deleteModalElement = document.getElementById("deleteModal");
+      const deleteButtons = document.getElementsByClassName("btn-delete");
+      const deleteConfirm = document.getElementById("deleteConfirm");
+  
+      // Verificar se os elementos existem antes de tentar acessá-los
+      if (!commentText || !commentForm || !submitButton || !deleteModalElement || !deleteConfirm) {
+          console.error("Um ou mais elementos necessários não foram encontrados no DOM.");
+          return;
+      }
+  
+      const deleteModal = new bootstrap.Modal(deleteModalElement);
+  
+      for (let button of editButtons) {
+          button.addEventListener("click", (e) => {
+              let commentId = e.target.getAttribute("comment_id");
+              let commentContent = document.getElementById(`comment${commentId}`).innerText;
+              commentText.value = commentContent;
+              submitButton.innerText = "Update";
+              commentForm.setAttribute("action", `edit_comment/${commentId}`);
+          });
+      }
+  
+      for (let button of deleteButtons) {
+          button.addEventListener("click", (e) => {
+              let commentId = e.target.getAttribute("comment_id");
+              deleteConfirm.href = `delete_comment/${commentId}`;
+              deleteModal.show();
+          });
+      }
+  });
+  </script>
+{% endblock content %}
+
+{% block extras %}
+
+{% endblock extras %}
+>>>>>>> before-crash

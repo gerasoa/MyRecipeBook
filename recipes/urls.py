@@ -13,3 +13,6 @@ urlpatterns = [
     path('toggle_favorite/<int:recipe_id>/', toggle_favorite, name='toggle_favorite'),     
     
 ]
+
+
+

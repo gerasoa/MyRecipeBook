@@ -4,6 +4,7 @@
 <div class="container">
     <h1>Search Results</h1>
     {% if query %}
+<<<<<<< HEAD
         <p>Results for "{{ query }}":</p>
         <div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
             {% for recipe in results %}
@@ -29,8 +30,16 @@
             </div> -->
             {% endfor %}
         </div>
+=======
+    <p>Results for "{{ query }}":</p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4">
+        {% for recipe in results %}
+            {% include 'recipes/card.html' %}       
+        {% endfor %}
+    </div>
+>>>>>>> before-crash
     {% else %}
-        <p>No results found.</p>
+    <p>No results found.</p>
     {% endif %}
 </div>
 {% endblock %}

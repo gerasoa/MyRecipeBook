@@ -3,7 +3,6 @@ from .models import ChefProfile
 from django.urls import reverse
 from recipes.models import Recipe
 
-# Create your views here.
 def chef_list(request):
     chefs = ChefProfile.objects.all()
     return render(request, 'chefs/chef_list.html', {'chefs': chefs, 'chef_url': reverse('chef_list')})

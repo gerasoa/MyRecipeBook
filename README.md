@@ -21,21 +21,25 @@ The target audience for "My Meals" includes a diverse group of individuals who s
 
 **Admin**: Site moderators who are responsible for managing and maintaining the quality of content, such as reviewing recipe submissions and monitoring comments to ensure they are appropriate.
 
-## MVP FEATURES
+## 🚀 Features  
 
-Recipe Submission: A feature allowing chefs and cooks to submit recipes with photos, a list of ingredients, and detailed preparation instructions.
+**We're building something great!** 🎉 Check out the main features of our recipe website:  
 
-Recipe Browsing and Search: Enable users to browse recipes by categories (e.g., desserts, main courses) or search by name, ingredients, or keywords.
+- ⭐ **Save recipes as favourites** – Keep your favourite recipes handy for easy access.  
+- 📝 **Recipe submission** – Allow chefs and cooks to submit recipes with photos, a list of ingredients, and detailed preparation instructions.  
+- 🔎 **Recipe browsing and search** – Browse recipes by categories (e.g., desserts, main courses) or search by name, ingredients, or keywords.  
+- 🔐 **User registration and login** – An authentication system allowing users to create accounts, log in, and access restricted features, such as commenting on recipes.  
+- 💬 **Comment section** – Logged-in users can leave comments on recipes, ask questions, or share suggestions.  
+- 📩 **Contact chefs** – Ask questions and get advice directly from professional chefs.  
+- 🔥 **Recipe rating system** – Rate recipes from 1 to 5 stars to help others choose the best ones.  
+- 🖥️ **Recipe details page** – A dedicated page for each recipe, containing all the details, including a featured image, ingredients, preparation steps, and comments.  
+- 🎨 **User-friendly interface** – A simple and intuitive design focused on ensuring a seamless user experience when navigating the site and accessing content.  
+- 📱 **Responsive design** – A layout optimised for access on both mobile devices and desktops.  
+- 🛠 **Complete admin panel** – Manage recipes, users, and comments with advanced tools for administrators.  
 
-User Registration and Login: An authentication system allowing users to create accounts, log in, and access restricted features, such as commenting on recipes.
+And more exciting features coming soon! 🚀  
 
-Comment Section: A section where logged-in users can leave comments on recipes, ask questions, or share suggestions.
 
-Responsive Design: A layout optimised for access on both mobile devices and desktops.
-
-Recipe Details Page: A dedicated page for each recipe, containing all the details, including a featured image, ingredients, preparation steps, and comments.
-
-User-Friendly Interface: A simple and intuitive design focused on ensuring a seamless user experience when navigating the site and accessing content.
 
 ## ADDITIONAL FEATURES
 
@@ -85,8 +89,17 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
 
 
+## Tests
 
+![Recipe List](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-recipe-list.png)
 
+![Recipe Detail](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-recipe-detail.png)
+
+![favorites](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-favorites.png)
+
+![Chefs Detail](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-chefs-detail.png)
+
+![Search](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-search.png)
 
 
 
@@ -148,12 +161,12 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 ## CREDITS
 
-- Project developed by the "My Meals" team.
+- Project developed by the "My Recipes" team.
 - Images provided by [Pexels](https://www.pexels.com/).
 - Diagrams created using [Lucidchart](https://lucid.app/) and [dbdiagram.io](https://dbdiagram.io/).
 - Hosted on [Heroku](https://www.heroku.com/).
 - Source code managed on [GitHub](https://github.com/).
-
+- https://getemoji.com
 
 
 

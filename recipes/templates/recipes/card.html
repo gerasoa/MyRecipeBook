@@ -4,11 +4,21 @@
 <div class="col">
     <div class="card section-dark h-100 d-flex flex-column">
         <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
+<<<<<<< HEAD
             {% if recipe.photo.url %}
             <img class="img-list" src="{{ recipe.photo.url }}" alt="image of a {{ recipe.title }}">
             {% else %}
             <img class="img-list" src="{% static 'images/default.jpg' %}" alt="image of a {{ recipe.title }}">
             {% endif %}
+=======
+
+            {% if recipe.photo.url %}
+            <img class="img-list" src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
+            {% else %}
+            <img class="img-list" src="{% static 'images/default.jpg' %}" alt="{{ recipe.title }}">
+            {% endif %}
+
+>>>>>>> before-crash
             <div class="card-body flex-grow-1">
                 <h3 class="card-title text-start">{{ recipe.title }}</h3>
             </div>
@@ -21,9 +31,14 @@
                 <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
                     data-recipe-id="{{ recipe.id }}"></i>
             </span>
-            <div class="star-rating">
+            <div class="star-rating">               
                 {% for i in 5|range_filter %}
+<<<<<<< HEAD
                 {% if i < recipe.average_rating %} <span class="fa fa-star checked"></span>
+=======
+                    {% if i < recipe.average_rating %} 
+                        <span class="fa fa-star checked"></span>
+>>>>>>> before-crash
                     {% else %}
                     <span class="fa fa-star"></span>
                     {% endif %}
