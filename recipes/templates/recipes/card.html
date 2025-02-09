@@ -23,12 +23,13 @@
                 <i class="fa-heart fa-lg comment-icon favorite-icon {% if user in recipe.favorites.all %}fas{% else %}far{% endif %}"
                     data-recipe-id="{{ recipe.id }}" style="cursor: pointer;"></i>
             </span>
-            <div class="star-rating">
+            <div class="star-rating">               
                 {% for i in 5|range_filter %}
-                {% if recipe.average_rating %} <span class="fa fa-star checked"></span>
-                {% else %}
-                <span class="fa fa-star"></span>
-                {% endif %}
+                    {% if i < recipe.average_rating %} 
+                        <span class="fa fa-star checked"></span>
+                    {% else %}
+                        <span class="fa fa-star"></span>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>

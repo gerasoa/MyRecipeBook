@@ -136,7 +136,7 @@ class FavoriteRecipesView(LoginRequiredMixin, ListView):
     model = Recipe
     template_name = 'recipes/favorite_recipes.html'
     context_object_name = 'favorite_recipes'
-    paginate_by = 5    
+    paginate_by = 8   
 
     def get_queryset(self):
         return self.request.user.favorite_recipes.all().annotate(comment_count=Count('comments'))
