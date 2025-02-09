@@ -39,9 +39,7 @@ The target audience for "My Meals" includes a diverse group of individuals who s
 
 And more exciting features coming soon! 🚀  
 
-///////////////////////////////////////////////////////////////
-https://getemoji.com/📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱
-////////////////////////////////////////////////
+
 
 ## ADDITIONAL FEATURES
 
@@ -91,8 +89,17 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
 
 
+## Tests
 
+![Recipe List](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-recipe-list.png)
 
+![Recipe Detail](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-recipe-detail.png)
+
+![favorites](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-favorites.png)
+
+![Chefs Detail](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-chefs-detail.png)
+
+![Search](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-search.png)
 
 
 
@@ -154,12 +161,12 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 ## CREDITS
 
-- Project developed by the "My Meals" team.
+- Project developed by the "My Recipes" team.
 - Images provided by [Pexels](https://www.pexels.com/).
 - Diagrams created using [Lucidchart](https://lucid.app/) and [dbdiagram.io](https://dbdiagram.io/).
 - Hosted on [Heroku](https://www.heroku.com/).
 - Source code managed on [GitHub](https://github.com/).
-
+- https://getemoji.com
 
 
 
