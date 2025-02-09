@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="container">
-  <div claass="row mb-5">
+  <div class="row mb-5">
     <div class="col-md-12">
       <!-- Recipe title -->
       <h1>{{ recipe.title }}</h1>
@@ -23,7 +23,7 @@
     <div class="col col-sm-12 col-md-8">
       <!-- Image -->
       {% if recipe.photo.url %}
-        <img class="img-detail img-fluid" src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" height="10px">
+        <img class="img-detail img-fluid" src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" >
       {% else %}
         <img class="img-detail img-fluid"  src="{% static 'images/default.jpg' %}" alt="{{ recipe.title }}">
       {% endif %}     
