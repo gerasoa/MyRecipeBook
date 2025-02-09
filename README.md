@@ -154,9 +154,30 @@ MyRecipe implements role-based authentication with specific roles for users:
 
 Users can log in or register via email and password. When not logged in, the Login and Register options are available. Once logged in, the Logout option appears. Admins and Chefs have exclusive access to their dedicated admin areas, while regular users can only access the public website interface.
 
+## Testing
 
+Test Procedures
 
+🚀 Python Tests: Manual tests were conducted to validate the functionality, usability, and responsiveness of the application, ensuring all key features function as expected.
 
+⚙️ W3C Validation: W3C validators were used to check the compliance of HTML and CSS with web standards, ensuring accessibility and cross-browser compatibility.
+
+Testing Documentation
+📋 Test Cases: Manual tests were performed based on specific use cases of the application, covering functionalities such as login, registration, navigation, and recipe submission.
+
+✅ Results: All tests passed successfully, with positive validation of HTML and CSS using W3C validators, and no critical errors found.
+
+![CSS Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-css-style.png)
+
+![Html Index Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-html-index.png)
+
+![Html Recipe Detail Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-html-recipe_detail.png)
+
+![Html Chefs Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-html-chefs.png)
+
+![Html Chefs Detail Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-html-chef_detail.png)
+
+![Html Favorites Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-html-favorites.png)
 
 
 
