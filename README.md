@@ -96,6 +96,22 @@ Admin & Moderation Tools
 
 :four: Intuitive & Accessible: Easy-to-use platform with a clean interface.
 
+
+## Future Enhancements
+
+💡 AI-Powered Recommendations – Suggest recipes based on user preferences and available ingredients.
+💡 Video Tutorials – Step-by-step cooking guides from professional chefs.
+💡 Recipe Collections – Themed lists like "Beginner Recipes" and "Quick & Easy Meals".
+💡 Meal Planning Tools – Generate weekly meal plans based on dietary preferences.
+
+
+
+
+
+
+
+
+
 ---
 ---
 ---
