@@ -1,5 +1,104 @@
+# MyRecipe - Project Overview
+
+## Problem Statement
+
+Many people struggle to find reliable and practical recipes that actually work. Additionally, they often do not know where to seek help for culinary questions. Due to a lack of cooking knowledge and skills, many individuals rely on processed and ultra-processed foods, leading to an imbalanced diet full of preservatives and harmful ingredients.
+
+MyRecipe aims to bridge this gap by offering a structured and interactive platform where users can:
+
+Access tested and verified recipes
+Engage with a community of home cooks and professional chefs
+Improve their culinary skills with step-by-step guidance
+Reduce reliance on processed foods by promoting homemade meals
+By making reliable recipes and expert advice easily accessible, MyRecipe helps users build confidence in the kitchen and make healthier food choices.
 
 
+## Purpose
+
+The purpose of MyRecipe is to create a collaborative and user-friendly platform where chefs and home cooks can share tested and trustworthy recipes while enabling others to engage, learn, and ask questions.
+
+The platform aims to:
+
+✅ Improve Cooking Skills – Offer step-by-step guidance, culinary tips, and best practices.
+
+✅ Promote Healthier Eating – Encourage homemade meals using fresh, natural ingredients.
+
+✅ Foster a Cooking Community – Enable interaction through comments, Q&A, and recipe sharing.
+
+✅ Ensure Accessibility & Simplicity – Provide an intuitive interface optimized for all devices.
+
+Through MyRecipe, users can connect, share experiences, and adopt healthier eating habits, ultimately shifting towards wholesome, home-cooked meals that benefit overall well-being.
+
+
+## Target Audience
+
+MyRecipe is designed for a wide range of users who have an interest in cooking and healthy eating. The platform accommodates:
+
+👤 Guest Users – Visitors who can browse recipes but have limited interaction.
+
+👥 Registered Users – Users with an account who can save, comment, and engage with the community.
+
+👨‍🍳 Chefs & Home Cooks – Contributors who submit their own recipes and share expertise.
+
+🛠 Administrators – Moderators responsible for managing content, reviewing recipe submissions, and monitoring user engagement.
+
+
+## Core Features
+
+🚀 We're building something great! 🎉 Check out the key features of MyRecipe:
+
+Recipe Management
+
+:heavy_check_mark: Save Favourite Recipes – Bookmark recipes for quick access.
+
+:heavy_check_mark: Recipe Submission – Users can submit detailed recipes with images and instructions.
+
+:heavy_check_mark: Recipe Search & Browsing – Filter by categories (e.g., desserts, main courses) or search by ingredients.
+
+User Interaction
+
+:heavy_check_mark: User Registration & Login – Create accounts to unlock interactive features.
+
+:heavy_check_mark: Comment Section – Ask questions, share tips, and interact with other cooks.
+
+:heavy_check_mark: Direct Chef Contact – Get culinary advice from professional chefs.
+
+:heavy_check_mark: Recipe Rating System – Rate recipes from 1 to 5 stars to help others choose the best ones.
+
+User Experience & Accessibility
+
+:heavy_check_mark: Recipe Details Page – A dedicated page with full ingredients, steps, and user feedback.
+
+:heavy_check_mark: User-Friendly Interface – Intuitive design for seamless navigation.
+
+:heavy_check_mark: Mobile & Desktop Optimisation – A fully responsive layout for all devices.
+
+:heavy_check_mark: Social Sharing – Share your favourite recipes on social media with one click.
+
+Admin & Moderation Tools
+
+:heavy_check_mark: Complete Admin Panel – Manage recipes, users, and comments efficiently.
+
+:heavy_check_mark: Content Review System – Ensure recipe quality and prevent spam.
+
+:heavy_check_mark: User Reports & Moderation – Maintain a respectful and helpful community.
+
+✨ And more exciting features coming soon! Stay tuned! 🚀
+
+
+## Why MyRecipe?
+
+:one: Reliable Recipes: Every recipe is tested and reviewed.
+
+:two: Community-Driven: Engage with a network of passionate cooks.
+
+:three: Health-Focused: Encourages home cooking with wholesome ingredients.
+
+:four: Intuitive & Accessible: Easy-to-use platform with a clean interface.
+
+---
+---
+---
 ## PROBLEM STATEMENT
 
 Many people face difficulties in finding reliable and practical recipes that actually work, as well as not knowing where to seek help with culinary questions. Additionally, many opt for processed and ultra-processed foods due to a lack of knowledge and skills to cook their own meals, leading to an imbalanced diet full of preservatives and harmful ingredients. "My Meals" aims to address these issues by providing a platform where users can find tested recipes, ask questions, and learn to cook in a healthy way, contributing to the improvement of eating habits and reducing the consumption of processed foods.
