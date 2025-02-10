@@ -185,17 +185,6 @@ Testing Documentation
 </details>
 
 
-
-<script>
-  function toggleImages() {
-    var imagesDiv = document.getElementById("images");
-    if (imagesDiv.style.display === "none") {
-      imagesDiv.style.display = "block";
-    } else {
-      imagesDiv.style.display = "none";
-    }
-  }
-</script>
 ---
 ---
 ---
