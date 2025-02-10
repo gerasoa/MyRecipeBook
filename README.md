@@ -120,6 +120,18 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 ## WIREFRAMES
 
+<div style="display: flex; justify-content: space-between;">
+    <div style="flex: 1; padding: 10px;">
+        ![wireframe browser](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-browser.png)
+    </div>
+    <div style="flex: 1; padding: 10px;">
+        ![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
+    </div>
+    <div style="flex: 1; padding: 10px;">
+        ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
+    </div>
+</div>
+
 ![wireframe browser](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-browser.png)
 
 ![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
