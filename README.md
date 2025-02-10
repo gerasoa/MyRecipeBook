@@ -131,9 +131,9 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 ![wireframe browser](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-browser.png)
 
-![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
-
 ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
+
+![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
 
 
 ## Future Enhancements
