@@ -1,5 +1,10 @@
 # MyRecipe - Project Overview
 
+![Am I responsive](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/responsive.png)
+
+[Am I responsive](https://ui.dev/amiresponsive?url=https://my-recipes-book-5149219e370b.herokuapp.com/)
+
+
 ## Problem Statement
 
 Many people struggle to find reliable and practical recipes that actually work. Additionally, they often do not know where to seek help for culinary questions. Due to a lack of cooking knowledge and skills, many individuals rely on processed and ultra-processed foods, leading to an imbalanced diet full of preservatives and harmful ingredients.
@@ -125,7 +130,6 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 ![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
 
 ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
-
 
 
 ## Future Enhancements
