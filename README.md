@@ -164,6 +164,7 @@ Allows users to comment on recipes, sharing their feedback, questions, and tips.
 📊 Database Relationships
 
 Users ↔ Recipes: A user can create multiple recipes, but each recipe is tied to a single user.
+
 Recipes ↔ Comments: Each recipe can have multiple comments, but each comment is linked to one recipe.
 
 Database Diagram
@@ -258,7 +259,7 @@ This project utilizes Git for version control and is hosted on GitHub. The repos
 
 The application is deployed on Heroku and is accessible at:
 
-[My Recipes Book](https://github.com/gerasoa/MyRecipeBook)
+[My Recipes Book](https://my-recipes-book-5149219e370b.herokuapp.com/)
 
 ### 🛠 Deployment Process
 
