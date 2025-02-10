@@ -120,17 +120,19 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 ## WIREFRAMES
 
-<div style="display: flex; justify-content: space-between;">
-    <div style="flex: 1; padding: 10px;">
-        ![wireframe browser](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-browser.png)
-    </div>
-    <div style="flex: 1; padding: 10px;">
-        ![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
-    </div>
-    <div style="flex: 1; padding: 10px;">
-        ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
-    </div>
-</div>
+<table>
+  <tr>
+    <td>
+      ![wireframe browser](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-browser.png)
+    </td>
+    <td>
+      ![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
+    </td>
+    <td>
+      ![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
+    </td>
+  </tr>
+</table>
 
 ![wireframe browser](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-browser.png)
 
