@@ -150,93 +150,11 @@
     </div>
   </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.favorite-icon').forEach(function (icon) {
-      icon.addEventListener('click', function () {
-        var recipeId = this.getAttribute('data-recipe-id');
-        var iconElement = this;
-        fetch(`/recipes/toggle_favorite/${recipeId}/`, {
-          method: 'POST',
-          headers: {
-            'X-CSRFToken': '{{ csrf_token }}',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({})
-        })
-          .then(response => response.json())
-          .then(data => {
-            if (data.is_favorite) {
-              iconElement.classList.remove('far');
-              iconElement.classList.add('fas');
-            } else {
-              iconElement.classList.remove('fas');
-              iconElement.classList.add('far');
-            }
-          });
-      });
-    });
-  });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const stars = document.querySelectorAll('.star-rating .fa-star');
-    const ratingValue = document.querySelector('.rating-value');
-
-    stars.forEach(star => {
-      star.addEventListener('click', function () {
-        const rating = this.getAttribute('data-rating');
-        ratingValue.value = rating;
-
-        stars.forEach(s => {
-          s.classList.remove('checked');
-        });
-
-        for (let i = 0; i < rating; i++) {
-          stars[i].classList.add('checked');
-        }
-      });
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-      const editButtons = document.getElementsByClassName("btn-edit");
-      const commentText = document.getElementById("id_body");
-      const commentForm = document.getElementById("commentForm");
-      const submitButton = document.getElementById("submitButton");
-  
-      const deleteModalElement = document.getElementById("deleteModal");
-      const deleteButtons = document.getElementsByClassName("btn-delete");
-      const deleteConfirm = document.getElementById("deleteConfirm");
-  
-      // Verificar se os elementos existem antes de tentar acessá-los
-      if (!commentText || !commentForm || !submitButton || !deleteModalElement || !deleteConfirm) {
-          console.error("Um ou mais elementos necessários não foram encontrados no DOM.");
-          return;
-      }
-  
-      const deleteModal = new bootstrap.Modal(deleteModalElement);
-  
-      for (let button of editButtons) {
-          button.addEventListener("click", (e) => {
-              let commentId = e.target.getAttribute("comment_id");
-              let commentContent = document.getElementById(`comment${commentId}`).innerText;
-              commentText.value = commentContent;
-              submitButton.innerText = "Update";
-              commentForm.setAttribute("action", `edit_comment/${commentId}`);
-          });
-      }
-  
-      for (let button of deleteButtons) {
-          button.addEventListener("click", (e) => {
-              let commentId = e.target.getAttribute("comment_id");
-              deleteConfirm.href = `delete_comment/${commentId}`;
-              deleteModal.show();
-          });
-      }
-  });
-  </script>
 {% endblock content %}
 
 {% block extras %}
-
-{% endblock extras %}
+<script src="{% static 'js/scripts.js' %}"></script>
+<script src="{% static 'js/comments.js' %}"></script>
+<script src="{% static 'js/rating.js' %}"></script>
+{% endblock %}

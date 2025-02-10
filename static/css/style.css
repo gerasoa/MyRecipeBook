@@ -144,6 +144,10 @@ body {
   color: var(--color-star);
 }
 
+.star-rating-total{
+  color: var(--color-star);
+}
+
 /* Comments */
 .form-comment {
   margin-top: 1.3em;
