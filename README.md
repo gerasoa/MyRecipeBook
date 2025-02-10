@@ -167,9 +167,8 @@ Testing Documentation
 
 ✅ Results: All tests passed successfully, with positive validation of HTML and CSS using W3C validators, and no critical errors found.
 
-<button onclick="toggleImages()">Show/Hide Test Images</button>
-
-<div id="images" style="display: none;">
+<details>
+  <summary>Show/Hide Test Images</summary>
 
 ![CSS Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-css-style.png)
 
@@ -183,7 +182,7 @@ Testing Documentation
 
 ![Html Favorites Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-html-favorites.png)
 
-</div>
+</details>
 
 
 
