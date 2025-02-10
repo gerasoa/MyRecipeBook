@@ -263,7 +263,6 @@ body {
 .pagination .page-link {
   color: var(--color-primary);
   font-weight: bold;
-  border-color: var(--color-accent);
 }
 
 .pagination .page-item.active .page-link {
