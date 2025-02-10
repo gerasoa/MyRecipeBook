@@ -387,10 +387,15 @@ The use of AI drastically reduced development time, allowing for quicker debuggi
 ## CREDITS
 
 - Project developed by the "My Recipes" team.
+
 - Images provided by [Pexels](https://www.pexels.com/).
+
 - Diagrams created using [Lucidchart](https://lucid.app/) and [dbdiagram.io](https://dbdiagram.io/).
+
 - Hosted on [Heroku](https://www.heroku.com/).
+
 - Source code managed on [GitHub](https://github.com/).
+
 - https://getemoji.com
 
 
@@ -398,8 +403,11 @@ The use of AI drastically reduced development time, allowing for quicker debuggi
 ## IMAGES
 
 Chefs - 160x160 pixels
+
 Chefs detail - 300x300 pixels 
+
 https://www.pexels.com/photo/fish-salad-dish-262959/
+
 https://www.pexels.com/search/food/
 
 
