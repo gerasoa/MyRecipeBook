@@ -184,10 +184,11 @@ Testing Documentation
 
 </details>
 
-🔹 Version Control & Secure Code Management
+## Version Control & Secure Code Management
+
 This project utilizes Git for version control and is hosted on GitHub. The repository can be accessed here:
 
-📌 GitHub Repository
+📌 [GitHub Repository](https://github.com/gerasoa/MyRecipeBook)
 
 🛠️ Git Workflow
 
@@ -197,13 +198,13 @@ This project utilizes Git for version control and is hosted on GitHub. The repos
 
 ✅ Descriptive Commit Messages: Each commit follows a meaningful and structured format.
 
-🔐 Secure Code Management
+✅ Secure Code Management
 
-🛑 No sensitive data is committed: Credentials and private keys are stored securely.
+✅ No sensitive data is committed: Credentials and private keys are stored securely.
 
-📄 .env and .gitignore: Used to prevent sensitive files from being included in the repository.
+✅ .env and .gitignore: Used to prevent sensitive files from being included in the repository.
 
-🔍 Security Review: The repository is regularly checked to ensure compliance with best security practices.
+✅ Security Review: The repository is regularly checked to ensure compliance with best security practices.
 
 ---
 ---
