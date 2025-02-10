@@ -1,7 +1,7 @@
 # MyRecipe - Project Overview
 
 <p align="center">
-  <a href="https://my-recipes-book-5149219e370b.herokuapp.com/">MyRecipes deployed</a>
+  <a href="https://my-recipes-book-5149219e370b.herokuapp.com/" target="blank">MyRecipes deployed</a>
 </p>
 
 ![Am I responsive](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/responsive.png)
