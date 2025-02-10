@@ -184,6 +184,26 @@ Testing Documentation
 
 </details>
 
+🔹 Version Control & Secure Code Management
+This project utilizes Git for version control and is hosted on GitHub. The repository can be accessed here:
+
+📌 GitHub Repository
+
+🛠️ Git Workflow
+
+✅ Feature-Based Commits: Commits are made after implementing new features, bug fixes, or complex adjustments.
+
+✅ Main Branch Usage: The project is maintained on the main branch for stability.
+
+✅ Descriptive Commit Messages: Each commit follows a meaningful and structured format.
+
+🔐 Secure Code Management
+
+🛑 No sensitive data is committed: Credentials and private keys are stored securely.
+
+📄 .env and .gitignore: Used to prevent sensitive files from being included in the repository.
+
+🔍 Security Review: The repository is regularly checked to ensure compliance with best security practices.
 
 ---
 ---
