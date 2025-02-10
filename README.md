@@ -97,6 +97,37 @@ Admin & Moderation Tools
 :four: Intuitive & Accessible: Easy-to-use platform with a clean interface.
 
 
+## USER STORIES
+
+USER STORY: User Login [#1](https://github.com/gerasoa/MyRecipeBook/issues/2#issue-2811824467)
+
+USER STORY: Browse and Search Recipes [#2](https://github.com/gerasoa/MyRecipeBook/issues/1#issue-2810909751)
+
+USER STORY: Leave Comments on Recipes [#3](https://github.com/gerasoa/MyRecipeBook/issues/3#issue-2811829264)
+
+USER STORY: Submit Recipes [#4](https://github.com/gerasoa/MyRecipeBook/issues/4#issue-2811830286)
+
+USER STORY: Filter Recipes by Dietary Preferences [#5](https://github.com/gerasoa/MyRecipeBook/issues/5#issue-2811831905)
+
+USER STORY: Save Recipes to Favourites [#6](https://github.com/gerasoa/MyRecipeBook/issues/6#issue-2811838753)
+
+USER STORY: View Ratings and Reviews [#7](https://github.com/gerasoa/MyRecipeBook/issues/7#issue-2811840169)
+
+USER STORY: Moderate Recipe Submissions and Comments [#8](https://github.com/gerasoa/MyRecipeBook/issues/8#issue-2811841297)
+
+USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#issue-2811842049)
+
+
+## WIREFRAMES
+
+![wireframe browser](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-browser.png)
+
+![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
+
+![wireframe tablet](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-tablet.png)
+
+
+
 ## Future Enhancements
 
 💡 AI-Powered Recommendations – Suggest recipes based on user preferences and available ingredients.
@@ -168,7 +199,8 @@ Testing Documentation
 ✅ Results: All tests passed successfully, with positive validation of HTML and CSS using W3C validators, and no critical errors found.
 
 <details>
-  <summary>Show/Hide Test Images</summary>
+  <summary>Show/Hide Test Validator Images</summary>
+
 
 ![CSS Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-css-style.png)
 
@@ -181,6 +213,21 @@ Testing Documentation
 ![Html Chefs Detail Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-html-chef_detail.png)
 
 ![Html Favorites Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-html-favorites.png)
+
+</details>
+
+<details>
+  <summary>Show/Hide Lighthouse Images</summary>
+
+![Recipe List](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-recipe-list.png)
+
+![Recipe Detail](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-recipe-detail.png)
+
+![favorites](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-favorites.png)
+
+![Chefs Detail](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-chefs-detail.png)
+
+![Search](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-search.png)
 
 </details>
 
@@ -205,6 +252,171 @@ This project utilizes Git for version control and is hosted on GitHub. The repos
 ✅ .env and .gitignore: Used to prevent sensitive files from being included in the repository.
 
 ✅ Security Review: The repository is regularly checked to ensure compliance with best security practices.
+
+
+## Deployment
+
+The application is deployed on Heroku and is accessible at:
+
+[My Recipes Book](https://github.com/gerasoa/MyRecipeBook)
+
+### 🛠 Deployment Process
+
+The deployment was carried out using Heroku with the following steps:
+
+1 - Prepare the application
+
+ - Install dependencies: `pip install -r requirements.txt`
+
+ - Set `DEBUG = False` for production.
+
+ - Configure `ALLOWED_HOSTS` to include the Heroku app domain.
+
+2 - Set up environment variables
+
+The following variables were added to Heroku:
+
+- CLOUDINARY_URL – For media storage
+
+- DATABASE_URL – For database connection
+
+- DISABLE_COLLECTSTATIC=1 – To prevent static file collection issues
+
+- SECRET_KEY – To ensure application security
+
+3 - Deploy to Heroku
+
+- Create a new Heroku app: heroku create my-recipes-book
+
+- Set environment variables: heroku config:set VAR_NAME=value
+
+- Push the project:
+
+```bash
+git add .
+git commit -m "Prepare for deployment"
+git push heroku main
+```
+
+- Run database migrations: `heroku run python manage.py migrate`
+
+
+## 🔒 Security Measures
+
+✔ `SECRET_KEY` and other sensitive credentials are stored securely as environment variables.
+
+✔ `.gitignore` is configured to exclude sensitive files.
+
+✔ `DEBUG = False` in production to enhance security.
+
+
+## ✅ Deployment Verification
+
+After deployment, the application was tested to ensure:
+
+- The functionality matches the local development version.
+
+- Database connections and media storage work correctly.
+
+- The UI and interactive features operate as expected.
+
+
+## AI Assistance in Development 🤖
+
+During the development of this project, I strategically used GitHub Copilot to assist in various aspects of the code creation process. Here’s how AI contributed:
+
+1 - Code Creation & Refinement:
+
+Copilot helped generate parts of the code, especially in complex areas, and suggested improvements for better code structure and readability. It also assisted in refining classes and optimizing the CSS for better organization.
+
+Bug Detection & Fixing:
+
+2 -  I encountered several bugs in the code, which were identified and corrected with the help of AI. Copilot played a crucial role in pinpointing semantic errors and suggesting corrections, ensuring smoother functionality.
+
+3 - Content Creation & Testing:
+
+AI also contributed to generating content for the site and testing core functionalities. This was particularly valuable in ensuring that key features were working as expected.
+
+4 - Productivity & Efficiency Gains:
+
+The use of AI drastically reduced development time, allowing for quicker debugging, content generation, and code optimization. The overall impact on productivity was significant, and I was able to focus on higher-level tasks with improved efficiency.
+
+## TECHNOLOGIES USED
+
+**HTML5**: The standard markup language for creating web pages, providing the structure and content of the site.
+
+**CSS3**: A style sheet language used for describing the presentation of a document written in HTML, enabling responsive and visually appealing designs.
+
+**JavaScript**: A programming language that enables interactive web pages, enhancing user experience with dynamic content and features.
+
+**GitHub**: A platform for version control and collaboration, allowing multiple developers to work on projects simultaneously and manage code changes.
+
+**Heroku**: A cloud platform as a service (PaaS) supporting several programming languages, used for deploying, managing, and scaling web applications.
+
+**Pexels**: A free stock photo and video website, providing high-quality images used within the application for visual enhancement.
+
+**Cloudinary**: Media management service that allows uploading, storing, manipulating, and delivering images and videos.
+
+**Crispy-bootstrap5**: Django package that integrates Django forms with Bootstrap 5, allowing for easy and consistent form rendering.
+
+**Dj-database-url**: Utility for configuring database URLs in Django.
+
+**Dj3-cloudinary-storage**: Django package that integrates Django media storage with the Cloudinary service.
+
+**Django**: High-level web framework for Python that enables rapid and clean development of web applications.
+
+**Django-crispy-forms**: Django package that makes it easy to create elegant and reusable forms.
+
+**Django-allauth**: Django application for authentication, registration, and account management.
+
+**Django-summernote**: WYSIWYG editor based on Summernote for integration with Django.
+
+**Gunicorn**: WSGI HTTP server for Python applications, used to deploy Django applications.
+
+**Pillow**: Image processing library for Python.
+
+**Psycopg2**: PostgreSQL database adapter for Python.
+
+**Python3-openid**: Library for supporting the OpenID protocol.
+
+**Tzdata**: Time zone database.
+
+**Whitenoise**: Library for serving static files in Django applications.
+
+## CREDITS
+
+- Project developed by the "My Recipes" team.
+- Images provided by [Pexels](https://www.pexels.com/).
+- Diagrams created using [Lucidchart](https://lucid.app/) and [dbdiagram.io](https://dbdiagram.io/).
+- Hosted on [Heroku](https://www.heroku.com/).
+- Source code managed on [GitHub](https://github.com/).
+- https://getemoji.com
+
+
+
+## IMAGES
+
+Chefs - 160x160 pixels
+Chefs detail - 300x300 pixels 
+https://www.pexels.com/photo/fish-salad-dish-262959/
+https://www.pexels.com/search/food/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 ---
@@ -260,26 +472,6 @@ Social Sharing: An option to easily share recipes on social media or via a link.
 
 Recipe Collections: Themed lists created by users or administrators, such as "Beginner Recipes" or "Dishes for a Special Dinner".
 
-
-## USER STORIES
-
-USER STORY: User Login [#1](https://github.com/gerasoa/MyRecipeBook/issues/2#issue-2811824467)
-
-USER STORY: Browse and Search Recipes [#2](https://github.com/gerasoa/MyRecipeBook/issues/1#issue-2810909751)
-
-USER STORY: Leave Comments on Recipes [#3](https://github.com/gerasoa/MyRecipeBook/issues/3#issue-2811829264)
-
-USER STORY: Submit Recipes [#4](https://github.com/gerasoa/MyRecipeBook/issues/4#issue-2811830286)
-
-USER STORY: Filter Recipes by Dietary Preferences [#5](https://github.com/gerasoa/MyRecipeBook/issues/5#issue-2811831905)
-
-USER STORY: Save Recipes to Favourites [#6](https://github.com/gerasoa/MyRecipeBook/issues/6#issue-2811838753)
-
-USER STORY: View Ratings and Reviews [#7](https://github.com/gerasoa/MyRecipeBook/issues/7#issue-2811840169)
-
-USER STORY: Moderate Recipe Submissions and Comments [#8](https://github.com/gerasoa/MyRecipeBook/issues/8#issue-2811841297)
-
-USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#issue-2811842049)
 
 
 ## DATA MODEL
