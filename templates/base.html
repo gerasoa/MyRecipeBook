@@ -28,7 +28,7 @@
 
 <body class="d-flex flex-column h-100 main-bg">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <span class="brand-logo"><span class="red-o">My</span>Recipes</span>
@@ -80,7 +80,7 @@
         </div>
     </nav>
     <!-- displaying Django messages -->
-    <div class="container">
+    <div class="container mt-5">
         <div class="row mt-3">
             <div class="col-md-12">
                 <form class="d-flex" method="get" action="{% url 'search_recipes' %}">
