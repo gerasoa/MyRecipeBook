@@ -55,10 +55,17 @@
                         <a class="nav-link {% if request.path == chef_url %}active{% endif %}" aria-current="page"
                             href="{% url 'chef_list' %}">Chefs</a>
                     </li>
+                     {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == favorite_url %}active{% endif %}" aria-current="page"
+                                href="{% url 'favorite_recipes' %}">My Favorites</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == favorite_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'favorite_recipes' %}">My Favorites</a>
+                        <span class="nav-link ">Hi, <strong>{{ user }}</strong></span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
@@ -75,11 +82,6 @@
                     </li>
                     {% endif %}
                 </ul>
-                {% if user.is_authenticated %}
-                <span class="navbar-text text-muted">Hi, <strong>{{ user }}</strong></span>
-                {% else %}
-                <span class="navbar-text text-muted">You are not logged in</span>
-                {% endif %}
             </div>
         </div>
     </nav>
