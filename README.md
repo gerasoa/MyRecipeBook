@@ -15,8 +15,12 @@
 - [Target Audience](#target-audience)  
 - [Core Features](#core-features)  
 - [Why MyRecipe?](#why-myrecipe)  
-- [User Stories](#user-stories)  
-- [Wireframes](#wireframes)  
+- [User Stories](#user-stories)
+- [UX - User Experience](#ux---user-experience)  
+  - [Design Inspiration](#design-inspiration)
+  - [Wireframes](#wireframes)
+  - [Colour Scheme](#colour-scheme)
+  - [Fonts](#fonts)
 - [Future Enhancements](#future-enhancements)  
 - [Data Model](#data-model)  
 - [Authentication, Authorization & Access Control](#authentication-authorization--access-control)  
@@ -149,8 +153,16 @@ USER STORY: Moderate Recipe Submissions and Comments [#8](https://github.com/ger
 
 USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#issue-2811842049)
 
+## UX - User Experience
 
-## WIREFRAMES
+### Design Inspiration  
+
+The layout and visual style of MyRecipe were inspired by [Giallo Zafferano](https://www.giallozafferano.it/), a renowned Italian recipe website. Known for its vibrant colours and high-quality images, Giallo Zafferano masterfully blends art and culinary expertise, creating an engaging and visually appealing experience for food enthusiasts.  
+
+In MyRecipe, we aimed to capture the same essence by incorporating a clean and intuitive design, rich imagery, and a warm colour palette that enhances the user’s journey through the world of cooking.
+
+
+### WIREFRAMES
 
 ![wireframe browser](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-browser.png)
 
@@ -158,6 +170,13 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 ![wireframe mobile](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wf-mobile.png)
 
+### Colour Scheme
+
+![Colour Scheme](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/collors.png)
+
+### Fonts 
+
+MyRecipes uses the [Montserrat](https://fonts.google.com/specimen/Montserrat) font family to ensure a modern and elegant design. The website incorporates different variations of [Montserrat](https://fonts.google.com/specimen/Montserrat), including regular, bold, and italic styles, to enhance readability and visual appeal.
 
 ## Future Enhancements
 
