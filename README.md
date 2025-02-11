@@ -249,8 +249,17 @@ Testing Documentation
 
 ![Scripts](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-js-scripts.png)
 
-
 </details>
+
+### Known Issues 
+
+During testing with Chrome Developer Tools, some pages showed performance issues due to the following reasons:
+
+🔍 Insecure HTTP Requests: Cloudinary is currently serving media files over HTTP instead of HTTPS, which can make the page more vulnerable and trigger security warnings.
+
+🔍 Third-Party Cookies: A significant number of third-party cookies were detected, which may impact performance and security.
+
+These issues were identified and addressed but could not be fully resolved in time for this version. They will be fixed in future updates.
 
 
 ## Version Control & Secure Code Management
@@ -400,6 +409,8 @@ The use of AI drastically reduced development time, allowing for quicker debuggi
 **GetEmoji**: Online platform that provides a collection of Unicode emojis, allowing users to copy and paste emojis into applications.
 
 **Gunicorn**: WSGI HTTP server for Python applications, used to deploy Django applications.
+
+**JSHint**: A static code analysis tool for JavaScript that detects errors and potential issues in the code, helping developers write cleaner and more reliable scripts.
 
 **Pillow**: Image processing library for Python.
 
