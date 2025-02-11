@@ -426,7 +426,7 @@ The use of AI drastically reduced development time, allowing for quicker debuggi
 ## CREDITS
 
 Credits
-Website Reference: The design and structure of this website were inspired by the content and layout of Giallo Zafferano.
+Website Reference: The design and structure of this website were inspired by the content and layout of [Giallo Zafferano](https://www.giallozafferano.it/).
 
 Comment Script: The comment section functionality on the recipe detail page was implemented using a script provided by the Code Institute.
 
