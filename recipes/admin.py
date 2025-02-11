@@ -11,15 +11,6 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('ingredients', 'steps', 'description',)
 
 
-# Register your models here.
-# class RecipeAdmin(admin.ModelAdmin):
-#      ordering = ('-created_on',)
-#      list_filter = ('status', 'created_on')
-#      list_display = ('title', 'author', 'status', 'created_on')
-
-# admin.site.register(Recipe, RecipeAdmin)
-#admin.site.register(Comment)
-
 @admin.register(Comment)
 class CommentAdmin(SummernoteModelAdmin):
     list_display = ('author', 'recipe', 'body', 'created_on', 'approved')
