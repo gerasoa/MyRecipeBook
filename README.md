@@ -8,6 +8,29 @@
 
 [Am I responsive](https://ui.dev/amiresponsive?url=https://my-recipes-book-5149219e370b.herokuapp.com/)
 
+# Table of Contents  
+
+- [Problem Statement](#problem-statement)  
+- [Purpose](#purpose)  
+- [Target Audience](#target-audience)  
+- [Core Features](#core-features)  
+- [Why MyRecipe?](#why-myrecipe)  
+- [User Stories](#user-stories)  
+- [Wireframes](#wireframes)  
+- [Future Enhancements](#future-enhancements)  
+- [Data Model](#data-model)  
+- [Authentication, Authorization & Access Control](#authentication-authorization--access-control)  
+- [Testing](#testing)  
+  - [Known Issues](#known-issues)  
+- [Version Control & Secure Code Management](#version-control--secure-code-management)  
+- [Deployment](#deployment)  
+  - [Deployment Process](#deployment-process)  
+  - [Security Measures](#security-measures)  
+  - [Deployment Verification](#deployment-verification)  
+- [AI Assistance in Development](#ai-assistance-in-development)  
+- [Technologies Used](#technologies-used)  
+- [Credits](#credits)  
+
 
 ## Problem Statement
 
