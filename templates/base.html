@@ -55,7 +55,7 @@
                         <a class="nav-link {% if request.path == chef_url %}active{% endif %}" aria-current="page"
                             href="{% url 'chef_list' %}">Chefs</a>
                     </li>
-                     {% if user.is_authenticated %}
+                    {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == favorite_url %}active{% endif %}" aria-current="page"
                                 href="{% url 'favorite_recipes' %}">My Favorites</a>

@@ -208,7 +208,7 @@ Testing Documentation
 ✅ Results: All tests passed successfully, with positive validation of HTML and CSS using W3C validators, and no critical errors found.
 
 <details>
-  <summary>Show/Hide Test Validator Images</summary>
+  <summary>Show/Hide Test Validator HTML Images</summary>
 
 
 ![CSS Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-css-style.png)
@@ -239,6 +239,19 @@ Testing Documentation
 ![Search](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/lighthouse-search.png)
 
 </details>
+
+<details>
+  <summary>Show/Hide Test Validator JavaScript Images</summary>
+
+![Comments](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-js-comments.png)
+
+![Rating](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-js-rating.png)
+
+![Scripts](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-js-scripts.png)
+
+
+</details>
+
 
 ## Version Control & Secure Code Management
 
@@ -340,7 +353,7 @@ Copilot helped generate parts of the code, especially in complex areas, and sugg
 
 Bug Detection & Fixing:
 
-2 -  I encountered several bugs in the code, which were identified and corrected with the help of AI. Copilot played a crucial role in pinpointing semantic errors and suggesting corrections, ensuring smoother functionality.
+2 -  I encountered some bugs in the code, which were identified and corrected with the help of AI. Copilot played a crucial role in pinpointing semantic errors and suggesting corrections, ensuring smoother functionality.
 
 3 - Content Creation & Testing:
 
@@ -366,6 +379,8 @@ The use of AI drastically reduced development time, allowing for quicker debuggi
 
 **Cloudinary**: Media management service that allows uploading, storing, manipulating, and delivering images and videos.
 
+**Balsamiq**: A rapid wireframing tool that helps designers and developers create low-fidelity prototypes and mockups for user interface design.
+
 **Crispy-bootstrap5**: Django package that integrates Django forms with Bootstrap 5, allowing for easy and consistent form rendering.
 
 **Dj-database-url**: Utility for configuring database URLs in Django.
@@ -380,6 +395,10 @@ The use of AI drastically reduced development time, allowing for quicker debuggi
 
 **Django-summernote**: WYSIWYG editor based on Summernote for integration with Django.
 
+**dbdiagram.io**: A web-based tool for designing and visualising database schemas in an easy and collaborative way.
+
+**GetEmoji**: Online platform that provides a collection of Unicode emojis, allowing users to copy and paste emojis into applications.
+
 **Gunicorn**: WSGI HTTP server for Python applications, used to deploy Django applications.
 
 **Pillow**: Image processing library for Python.
@@ -392,31 +411,22 @@ The use of AI drastically reduced development time, allowing for quicker debuggi
 
 **Whitenoise**: Library for serving static files in Django applications.
 
+
 ## CREDITS
 
-- Project developed by the "My Recipes" team.
+Credits
+Website Reference: The design and structure of this website were inspired by the content and layout of Giallo Zafferano.
 
-- Images provided by [Pexels](https://www.pexels.com/).
+Comment Script: The comment section functionality on the recipe detail page was implemented using a script provided by the Code Institute.
 
-- Diagrams created using [Lucidchart](https://lucid.app/) and [dbdiagram.io](https://dbdiagram.io/).
+Project Completion: This project was completed with the dedication and hard work of several individuals:
 
-- Hosted on [Heroku](https://www.heroku.com/).
+Support Team from Code Institute: 
+[Emma Lamont](https://github.com/elamont174),
+[Spencer Barriball](https://github.com/5pence) and
+[Ruairidh MacArthur](https://github.com/roomacarthur)
 
-- Source code managed on [GitHub](https://github.com/).
-
-- https://getemoji.com
-
-
-
-## IMAGES
-
-Chefs - 160x160 pixels
-
-Chefs detail - 300x300 pixels 
-
-https://www.pexels.com/photo/fish-salad-dish-262959/
-
-https://www.pexels.com/search/food/
-
-
-
+Pair Programming Colleagues:
+[Anish Fatima](https://github.com/AnishAzharudeen),
+[Sonali Patni](https://github.com/SonaliP11) and
+[Isaac Nicholls](https://github.com/IsaacNicholls1)
