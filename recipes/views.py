@@ -3,43 +3,60 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Recipe, Comment, Rating
-from chefs.models import ChefProfile 
+# from chefs.models import ChefProfile
 from .forms import CommentForm
 from django.http import JsonResponse
 from django.db.models import Count
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
-from django.urls import reverse
+# from django.core.paginator import Paginator
+# from django.urls import reverse
 from django.db.models import Q
 from .forms import RatingForm
 from django.db.models import Avg
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 def under_construction(request):
     return render(request, 'under_construction.html')
+
 
 class RecipeList(generic.ListView):
     model = Recipe
     context_object_name = 'recipe_list'
     template_name = "recipes/index.html"
-    
+
     def get_queryset(self):
-        return Recipe.objects.filter(status=1).annotate(comment_count=Count('comments')).order_by('-created_on')[:4]
+        return (
+            Recipe.objects.filter(status=1)
+            .annotate(comment_count=Count('comments'))
+            .order_by('-created_on')[:4]
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['recent_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).order_by('-created_on')[:4]
-                
-        context['highest_rated_recipes'] = Recipe.objects.annotate(comment_count=Count('comments')).annotate(avg_rating=Avg('ratings__score')).order_by('avg_rating')[:4]
-        
+        context['recent_recipes'] = (
+            Recipe.objects.annotate(comment_count=Count('comments'))
+            .order_by('-created_on')[:4]
+        )
+
+        context['highest_rated_recipes'] = (
+            Recipe.objects
+            .annotate(comment_count=Count('comments'))
+            .annotate(avg_rating=Avg('ratings__score'))
+            .order_by('avg_rating')[:4]
+        )
+
         if self.request.user.is_authenticated:
-            context['favorite_recipes'] = self.request.user.favorite_recipes.annotate(comment_count=Count('comments'))[:4]
+            context['favorite_recipes'] = (
+                self.request.user.favorite_recipes
+                .annotate(comment_count=Count('comments'))[:4]
+            )
         else:
             context['favorite_recipes'] = Recipe.objects.none()
         return context
-        
-  
+
+
 def Recipe_detail(request, slug):
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
@@ -55,9 +72,13 @@ def Recipe_detail(request, slug):
                     user=request.user,
                     defaults={'score': rating_form.cleaned_data['score']}
                 )
-                recipe.average_rating = recipe.ratings.aggregate(Avg('score'))['score__avg']
+                recipe.average_rating = recipe.ratings.aggregate(
+                    Avg('score')
+                )['score__avg']
                 recipe.save()
-                messages.add_message(request, messages.SUCCESS, 'Rating submitted successfully')
+                messages.add_message(
+                    request, messages.SUCCESS, 'Rating submitted successfully'
+                )
                 return redirect('recipe_detail', slug=recipe.slug)
         else:
             comment_form = CommentForm(data=request.POST)
@@ -66,7 +87,10 @@ def Recipe_detail(request, slug):
                 comment.author = request.user
                 comment.recipe = recipe
                 comment.save()
-                messages.add_message(request, messages.SUCCESS, 'Comment submitted and awaiting approval')
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    'Comment submitted and awaiting approval'
+                )
                 return redirect('recipe_detail', slug=recipe.slug)
     else:
         rating_form = RatingForm()
@@ -101,21 +125,26 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!'
+            )
 
     return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
 def comment_delete(request, slug, comment_id):
-    queryset = Recipe.objects.filter(status=1)
-    post = get_object_or_404(queryset, slug=slug)
+    # queryset = Recipe.objects.filter(status=1)
+    # post = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author == request.user:
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR,
+            'You can only delete your own comments!'
+        )
 
     return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
@@ -136,23 +165,32 @@ class FavoriteRecipesView(LoginRequiredMixin, ListView):
     model = Recipe
     template_name = 'recipes/favorite_recipes.html'
     context_object_name = 'favorite_recipes'
-    paginate_by = 8   
+    paginate_by = 8
 
     def get_queryset(self):
-        return self.request.user.favorite_recipes.all().annotate(comment_count=Count('comments'))
+        return (
+            self.request.user.favorite_recipes.all()
+            .annotate(comment_count=Count('comments'))
+        )
 
     def get_context_data(self, **kwargs):
-            context = super().get_context_data(**kwargs)
-            context['favorite_url'] = reverse('favorite_recipes')  # Adiciona 'favorite_url' ao contexto
-            return context
+        context = super().get_context_data(**kwargs)
+        context['favorite_url'] = reverse('favorite_recipes')
+        return context
 
 
 def search_recipes(request):
     query = request.GET.get('q')
     if query:
         results = Recipe.objects.filter(
-            Q(title__icontains=query) | Q(description__icontains=query) | Q(ingredients__icontains=query)
+            Q(title__icontains=query) |
+            Q(description__icontains=query) |
+            Q(ingredients__icontains=query)
         ).annotate(comment_count=Count('comments'))
     else:
         results = Recipe.objects.none()
-    return render(request, 'recipes/search_results.html', {'results': results, 'query': query})
+    return render(
+        request,
+        'recipes/search_results.html',
+        {'results': results, 'query': query}
+    )

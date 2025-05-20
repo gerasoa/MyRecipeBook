@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from chefs.models import ChefProfile
-from django import forms
+# from django import forms
 # from .models import Rating
 from cloudinary.models import CloudinaryField
 
 STATUS = (
-    (0, "Draft"), 
+    (0, "Draft"),
     (1, "Published")
 )
 
@@ -16,34 +16,46 @@ DIFFICULTY = (
     (2, "Hard"),
 )
 
+
 # Create your models here.
 class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField()
     photo = CloudinaryField('image', null=True, blank=True)
-    favorites = models.ManyToManyField(User, related_name='favorite_recipes', blank=True)
+    favorites = models.ManyToManyField(
+        User, related_name='favorite_recipes', blank=True
+    )
     chef = models.ForeignKey(
-        ChefProfile, on_delete=models.CASCADE, related_name="book_recipes"   
+        ChefProfile, on_delete=models.CASCADE, related_name="book_recipes"
     )
     description = models.TextField()
     ingredients = models.TextField()
     steps = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
     average_rating = models.FloatField(default=0.0)
-    favorites = models.ManyToManyField(User, related_name='favorite_recipes', blank=True)
-    difficulty = models.IntegerField(choices=DIFFICULTY, default=0)    
-    prep_time = models.CharField(max_length=15,help_text="Preparation time in minutes")
-    cook_time = models.CharField(max_length=15,help_text="Cooking time in minutes")
-    servings = models.CharField(max_length=15,help_text="Number of servings")
+    favorites = models.ManyToManyField(
+        User,
+        related_name='favorite_recipes',
+        blank=True
+    )
+    difficulty = models.IntegerField(choices=DIFFICULTY, default=0)
+    prep_time = models.CharField(
+        max_length=15,
+        help_text="Preparation time in minutes"
+    )
+    cook_time = models.CharField(
+        max_length=15,
+        help_text="Cooking time in minutes"
+    )
+    servings = models.CharField(max_length=15, help_text="Number of servings")
     created_on = models.DateTimeField(auto_now_add=True)
 
-    
-    # tags = models.ManyToManyField(Tag, related_name="recipes")
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
+
 
 class Comment(models.Model):
     recipe = models.ForeignKey(
@@ -62,12 +74,14 @@ class Comment(models.Model):
 
 
 class Rating(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ratings')
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='ratings'
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     score = models.IntegerField(default=0)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = ('recipe', 'user')
-
-
