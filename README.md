@@ -1,7 +1,7 @@
-# MyRecipe - Project Overview
+# Simple Spoon - Project Overview
 
 <p align="center">
-  <a href="https://my-recipes-book-5149219e370b.herokuapp.com/" target="blank">MyRecipes deployed</a>
+  <a href="https://my-recipes-book-5149219e370b.herokuapp.com/" target="blank">Simple Spoon deployed</a>
 </p>
 
 ![Am I responsive](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/responsive.png)
@@ -14,7 +14,7 @@
 - [Purpose](#purpose)  
 - [Target Audience](#target-audience)  
 - [Core Features](#core-features)  
-- [Why MyRecipe?](#why-myrecipe)  
+- [Why Simple Spoon?](#why-simplespoon)  
 - [User Stories](#user-stories)
 - [UX - User Experience](#ux---user-experience)  
   - [Design Inspiration](#design-inspiration)
@@ -40,18 +40,18 @@
 
 Many people struggle to find reliable and practical recipes that actually work. Additionally, they often do not know where to seek help for culinary questions. Due to a lack of cooking knowledge and skills, many individuals rely on processed and ultra-processed foods, leading to an imbalanced diet full of preservatives and harmful ingredients.
 
-MyRecipe aims to bridge this gap by offering a structured and interactive platform where users can:
+Simple Spoon aims to bridge this gap by offering a structured and interactive platform where users can:
 
 Access tested and verified recipes
 Engage with a community of home cooks and professional chefs
 Improve their culinary skills with step-by-step guidance
 Reduce reliance on processed foods by promoting homemade meals
-By making reliable recipes and expert advice easily accessible, MyRecipe helps users build confidence in the kitchen and make healthier food choices.
+By making reliable recipes and expert advice easily accessible, Simple Spoon helps users build confidence in the kitchen and make healthier food choices.
 
 
 ## Purpose
 
-The purpose of MyRecipe is to create a collaborative and user-friendly platform where chefs and home cooks can share tested and trustworthy recipes while enabling others to engage, learn, and ask questions.
+The purpose of Simple Spoon is to create a collaborative and user-friendly platform where chefs and home cooks can share tested and trustworthy recipes while enabling others to engage, learn, and ask questions.
 
 The platform aims to:
 
@@ -63,12 +63,12 @@ The platform aims to:
 
 ✅ Ensure Accessibility & Simplicity – Provide an intuitive interface optimized for all devices.
 
-Through MyRecipe, users can connect, share experiences, and adopt healthier eating habits, ultimately shifting towards wholesome, home-cooked meals that benefit overall well-being.
+Through Simple Spoon, users can connect, share experiences, and adopt healthier eating habits, ultimately shifting towards wholesome, home-cooked meals that benefit overall well-being.
 
 
 ## Target Audience
 
-MyRecipe is designed for a wide range of users who have an interest in cooking and healthy eating. The platform accommodates:
+Simple Spoon is designed for a wide range of users who have an interest in cooking and healthy eating. The platform accommodates:
 
 👤 Guest Users – Visitors who can browse recipes but have limited interaction.
 
@@ -81,7 +81,7 @@ MyRecipe is designed for a wide range of users who have an interest in cooking a
 
 ## Core Features
 
-🚀 We're building something great! 🎉 Check out the key features of MyRecipe:
+🚀 We're building something great! 🎉 Check out the key features of Simple Spoon:
 
 Recipe Management
 
@@ -122,7 +122,7 @@ Admin & Moderation Tools
 ✨ And more exciting features coming soon! Stay tuned! 🚀
 
 
-## Why MyRecipe?
+## Why Simple Spoon?
 
 :one: Reliable Recipes: Every recipe is tested and reviewed.
 
@@ -157,9 +157,9 @@ USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#
 
 ### Design Inspiration  
 
-The layout and visual style of MyRecipe were inspired by [Giallo Zafferano](https://www.giallozafferano.it/), a renowned Italian recipe website. Known for its vibrant colours and high-quality images, Giallo Zafferano masterfully blends art and culinary expertise, creating an engaging and visually appealing experience for food enthusiasts.  
+The layout and visual style of Simple Spoon were inspired by [Giallo Zafferano](https://www.giallozafferano.it/), a renowned Italian recipe website. Known for its vibrant colours and high-quality images, Giallo Zafferano masterfully blends art and culinary expertise, creating an engaging and visually appealing experience for food enthusiasts.  
 
-In MyRecipe, we aimed to capture the same essence by incorporating a clean and intuitive design, rich imagery, and a warm colour palette that enhances the user’s journey through the world of cooking.
+In Simple Spoon, we aimed to capture the same essence by incorporating a clean and intuitive design, rich imagery, and a warm colour palette that enhances the user’s journey through the world of cooking.
 
 
 ### WIREFRAMES
@@ -176,7 +176,7 @@ In MyRecipe, we aimed to capture the same essence by incorporating a clean and i
 
 ### Fonts 
 
-MyRecipes uses the [Montserrat](https://fonts.google.com/specimen/Montserrat) font family to ensure a modern and elegant design. The website incorporates different variations of [Montserrat](https://fonts.google.com/specimen/Montserrat), including regular, bold, and italic styles, to enhance readability and visual appeal.
+Simple Spoon uses the [Montserrat](https://fonts.google.com/specimen/Montserrat) font family to ensure a modern and elegant design. The website incorporates different variations of [Montserrat](https://fonts.google.com/specimen/Montserrat), including regular, bold, and italic styles, to enhance readability and visual appeal.
 
 ## Future Enhancements
 
@@ -193,11 +193,11 @@ MyRecipes uses the [Montserrat](https://fonts.google.com/specimen/Montserrat) fo
 
 Overview
 
-The MyRecipe platform uses a structured PostgreSQL database to store and manage crucial data for recipes, users, and comments. Django migrations are employed to efficiently manage schema changes and keep the database updated as the project evolves.
+The Simple Spoon platform uses a structured PostgreSQL database to store and manage crucial data for recipes, users, and comments. Django migrations are employed to efficiently manage schema changes and keep the database updated as the project evolves.
 
 Data Model
 
-The main tables in the MyRecipe database are:
+The main tables in the Simple Spoon database are:
 
 📋 Users
 
@@ -219,14 +219,14 @@ Recipes ↔ Comments: Each recipe can have multiple comments, but each comment i
 
 Database Diagram
 
-Below is the diagram that illustrates the relationships between the tables in the MyRecipe database:
+Below is the diagram that illustrates the relationships between the tables in the Simple Spoon database:
 
 ![Data model](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/database-model.png)
 
 
 ## Authentication, Authorization & Access Control
 
-MyRecipe implements role-based authentication with specific roles for users:
+Simple Spoon implements role-based authentication with specific roles for users:
 
 👤 Logged-in Users – Can browse, save, and comment on recipes.
 
@@ -331,7 +331,7 @@ This project utilizes Git for version control and is hosted on GitHub. The repos
 
 The application is deployed on Heroku and is accessible at:
 
-[My Recipes Book](https://my-recipes-book-5149219e370b.herokuapp.com/)
+[Simple Spoon](https://my-recipes-book-5149219e370b.herokuapp.com/)
 
 ### 🛠 Deployment Process
 
@@ -359,7 +359,7 @@ The following variables were added to Heroku:
 
 3 - Deploy to Heroku
 
-- Create a new Heroku app: heroku create my-recipes-book
+- Create a new Heroku app: heroku create simple-spoon
 
 - Set environment variables: heroku config:set VAR_NAME=value
 
