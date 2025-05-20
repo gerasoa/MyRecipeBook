@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class About(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -7,7 +8,7 @@ class About(models.Model):
 
     def __str__(self):
         return self.title
-    
+
 
 class CollaborateRequest(models.Model):
     name = models.CharField(max_length=200)
