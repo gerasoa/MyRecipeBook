@@ -15,10 +15,10 @@ import os
 import dj_database_url
 
 if os.path.isfile("env.py"):
-   import env
+   import env # noqa
 
 # Import message settings
-from .message_settings import MESSAGE_TAGS
+from .message_settings import MESSAGE_TAGS # noqa
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,13 +31,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True 
- 
-ALLOWED_HOSTS = ['.herokuapp.com',
-                 '127.0.0.1']
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 
-                        'https://*.herokuapp.com']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
+
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
 
 
 # Application definition
