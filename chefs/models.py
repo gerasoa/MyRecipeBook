@@ -9,7 +9,8 @@ class ChefProfile(models.Model):
     bio = models.TextField()
     # photo_small = models.ImageField(upload_to='chefs/small/', null=True, blank=True)
     photo_small = CloudinaryField('photo_small', blank=True, null=True)
-    photo_large = models.ImageField(upload_to='chefs/large/', null=True, blank=True)  
+    # photo_large = models.ImageField(upload_to='chefs/large/', null=True, blank=True)
+    photo_large = CloudinaryField('photo_large', blank=True, null=True)
     updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
