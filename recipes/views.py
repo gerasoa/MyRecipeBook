@@ -18,15 +18,38 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def under_construction(request):
+    """
+    Render the 'Under Construction' placeholder page.
+
+    Args:
+        request (HttpRequest): The incoming request.
+
+    Returns:
+        HttpResponse: The rendered 'under_construction' template.
+    """
     return render(request, 'under_construction.html')
 
 
 class RecipeList(generic.ListView):
+    """
+    Display a list of the latest published recipes on the homepage.
+
+    Also provides recent recipes, highest rated recipes,
+    and (if authenticated) the user's favourite recipes in context.
+    """
+
     model = Recipe
     context_object_name = 'recipe_list'
     template_name = "recipes/index.html"
 
     def get_queryset(self):
+        """
+        Retrieve the four most recent published recipes.
+
+        Returns:
+            QuerySet: A list of Recipe objects.
+        """
+
         return (
             Recipe.objects.filter(status=1)
             .annotate(comment_count=Count('comments'))
@@ -34,6 +57,16 @@ class RecipeList(generic.ListView):
         )
 
     def get_context_data(self, **kwargs):
+        """
+        Add additional context to the homepage view.
+
+        Includes recent recipes, highest rated recipes, and
+        favourite recipes if the user is authenticated.
+
+        Returns:
+            dict: Context data for rendering the template.
+        """
+
         context = super().get_context_data(**kwargs)
         context['recent_recipes'] = (
             Recipe.objects.annotate(comment_count=Count('comments'))
@@ -58,6 +91,22 @@ class RecipeList(generic.ListView):
 
 
 def Recipe_detail(request, slug):
+    """
+    Display a specific recipe in detail, along with its comments and
+    rating form.
+
+    Handles both GET and POST:
+    - GET: Shows the recipe and empty forms.
+    - POST: Handles submission of new comments or ratings.
+
+    Args:
+        request (HttpRequest): The incoming request.
+        slug (str): The recipe's slug identifier.
+
+    Returns:
+        HttpResponse: The rendered recipe detail page.
+    """
+
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
     comments = recipe.comments.all().order_by("-created_on")
@@ -110,6 +159,17 @@ def Recipe_detail(request, slug):
 
 
 def comment_edit(request, slug, comment_id):
+    """
+    Allow the user to edit their own comment on a recipe.
+
+    Args:
+        request (HttpRequest): The incoming request.
+        slug (str): The slug of the related recipe.
+        comment_id (int): The ID of the comment to edit.
+
+    Returns:
+        HttpResponseRedirect: Redirect to the recipe detail page.
+    """
 
     if request.method == "POST":
 
@@ -133,8 +193,18 @@ def comment_edit(request, slug, comment_id):
 
 
 def comment_delete(request, slug, comment_id):
-    # queryset = Recipe.objects.filter(status=1)
-    # post = get_object_or_404(queryset, slug=slug)
+    """
+    Allow the user to delete their own comment.
+
+    Args:
+        request (HttpRequest): The incoming request.
+        slug (str): The slug of the related recipe.
+        comment_id (int): The ID of the comment to delete.
+
+    Returns:
+        HttpResponseRedirect: Redirect to the recipe detail page.
+    """
+
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author == request.user:
@@ -151,6 +221,17 @@ def comment_delete(request, slug, comment_id):
 
 @login_required
 def toggle_favorite(request, recipe_id):
+    """
+    Toggle a recipe as favourite or remove it from the user's favourites.
+
+    Args:
+        request (HttpRequest): The request from a logged-in user.
+        recipe_id (int): ID of the recipe being favourited or unfavourited.
+
+    Returns:
+        JsonResponse: Contains the updated favourite status.
+    """
+
     recipe = get_object_or_404(Recipe, id=recipe_id)
     if recipe.favorites.filter(id=request.user.id).exists():
         recipe.favorites.remove(request.user)
@@ -162,6 +243,12 @@ def toggle_favorite(request, recipe_id):
 
 
 class FavoriteRecipesView(LoginRequiredMixin, ListView):
+    """
+    Display a paginated list of the user's favourite recipes.
+
+    Only accessible to authenticated users.
+    """
+
     model = Recipe
     template_name = 'recipes/favorite_recipes.html'
     context_object_name = 'favorite_recipes'
@@ -180,6 +267,16 @@ class FavoriteRecipesView(LoginRequiredMixin, ListView):
 
 
 def search_recipes(request):
+    """
+    Perform a search query on recipe titles, descriptions, or ingredients.
+
+    Args:
+        request (HttpRequest): The search request with query parameter.
+
+    Returns:
+        HttpResponse: The rendered search results page with matched recipes.
+    """
+
     query = request.GET.get('q')
     if query:
         results = Recipe.objects.filter(

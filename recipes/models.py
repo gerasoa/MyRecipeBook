@@ -19,6 +19,27 @@ DIFFICULTY = (
 
 # Create your models here.
 class Recipe(models.Model):
+    """
+    Model representing a recipe posted by a chef.
+
+    Attributes:
+        title (str): The title of the recipe.
+        slug (str): URL-friendly version of the title.
+        photo (CloudinaryField): Optional image for the recipe.
+        chef (ChefProfile): The chef who created the recipe.
+        description (str): A short summary of the recipe.
+        ingredients (str): Ingredients required for the recipe.
+        steps (str): Preparation steps for the recipe.
+        status (int): Whether the recipe is a draft or published.
+        average_rating (float): Average user rating.
+        favorites (ManyToMany[User]): Users who favourited this recipe.
+        difficulty (int): Difficulty level (easy, medium, hard).
+        prep_time (str): Time required to prepare the ingredients.
+        cook_time (str): Time required to cook the recipe.
+        servings (str): Number of servings.
+        created_on (datetime): Date and time the recipe was created.
+    """
+
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField()
     photo = CloudinaryField('image', null=True, blank=True)
@@ -58,6 +79,17 @@ class Recipe(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Model representing a comment on a recipe.
+
+    Attributes:
+        recipe (Recipe): The recipe the comment is related to.
+        author (User): The user who wrote the comment.
+        body (str): The comment content.
+        approved (bool): Whether the comment is approved for display.
+        created_on (datetime): Timestamp when the comment was created.
+    """
+
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(
@@ -70,10 +102,27 @@ class Comment(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
+        """
+        Return a string representation of the comment.
+        """
+
         return f"Comment by {self.author} on {self.recipe}"
 
 
 class Rating(models.Model):
+    """
+    Model representing a user-submitted rating for a recipe.
+
+    Attributes:
+        recipe (Recipe): The rated recipe.
+        user (User): The user who submitted the rating.
+        score (int): Rating score given by the user.
+        created_on (datetime): Timestamp when the rating was created.
+
+    Meta:
+        unique_together: Ensures a user can rate a recipe only once.
+    """
+
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
