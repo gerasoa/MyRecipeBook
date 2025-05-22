@@ -177,6 +177,9 @@ body {
   text-align: right;
 }
 
+.chef-name{
+  color: #0248B1;
+}
 .comment {
   padding: var(--padding-comment);
   margin-bottom: 15px;
