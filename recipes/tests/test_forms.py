@@ -1,7 +1,5 @@
 from django.test import TestCase
-from .forms import CommentForm, RatingForm
-
-# Create your tests here.
+from recipes.forms import CommentForm, RatingForm
 
 
 class TestCommentForm(TestCase):
