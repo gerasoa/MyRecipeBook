@@ -163,8 +163,7 @@ Follow the steps below to run this project locally.
 If you have Git installed, run:
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/gerasoa/MyRecipeBook.git
 ```
 
 ### 2. Create and Activate a Virtual Environment
