@@ -15,7 +15,7 @@
                 <img src="{% static 'images/default_chef_small.jpg' %}" alt="{{ chef.user.get_full_name }}"
                     class="img-fluid img-circle" width="160" height="160">
                 {% endif %}
-                <p class="chef-name">{{ chef.name }}</p>
+                <p class="link">{{ chef.name }}</p>
             </a>
         </div>
         {% if forloop.counter|divisibleby:5 and not forloop.last %}
