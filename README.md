@@ -240,18 +240,49 @@ Users can log in or register via email and password. When not logged in, the Log
 
 Test Procedures
 
-🚀 Python Tests: Manual tests were conducted to validate the functionality, usability, and responsiveness of the application, ensuring all key features function as expected.
+✅ Test Overview
 
-⚙️ W3C Validation: W3C validators were used to check the compliance of HTML and CSS with web standards, ensuring accessibility and cross-browser compatibility.
+Manual and automated tools were used to test the functionality, usability, responsiveness, accessibility, and performance of the application.
 
-Testing Documentation
-📋 Test Cases: Manual tests were performed based on specific use cases of the application, covering functionalities such as login, registration, navigation, and recipe submission.
+### 🧪 Test Environments
 
-✅ Results: All tests passed successfully, with positive validation of HTML and CSS using W3C validators, and no critical errors found.
+| Device                       | Browser               |
+| ---------------------------- | --------------------- |
+| Windows PC                   | Chrome, Firefox, Edge |
+| macOS Laptop                 | Safari, Chrome        |
+| Android (Samsung Galaxy A51) | Chrome Mobile         |
+| iPhone (iOS 17)              | Safari                |
 
+
+
+### 📋 Manual Test Cases
+
+| Feature        | Test Description                                    | Result   |
+| -------------- | --------------------------------------------------- | -------- |
+| Registration   | User can register with valid data                   | ✅ Passed |
+| Login          | User can log in with valid credentials              | ✅ Passed |
+| Logout         | Logged-in user can log out successfully             | ✅ Passed |
+| Recipe List    | Homepage displays recent recipes                    | ✅ Passed |
+| Recipe Detail  | Clicking on a recipe shows full detail              | ✅ Passed |
+| Comment        | Logged-in user can post, edit, and delete a comment | ✅ Passed |
+| Rating         | Logged-in user can submit a rating                  | ✅ Passed |
+| Favourites     | User can favourite/unfavourite a recipe             | ✅ Passed |
+| Search         | Search returns relevant recipes                     | ✅ Passed |
+| Chef List      | List of chefs loads with correct links              | ✅ Passed |
+| Chef Detail    | Chef page shows correct data and recipes            | ✅ Passed |
+| Responsiveness | Layout adapts correctly on mobile and tablet        | ✅ Passed |
+| Access Control | Non-authenticated users cannot post/edit/delete     | ✅ Passed |
+
+
+### 🧩 Validation and Auditing Tools
+
+
+
+
+
+✅ HTML/CSS Validation: Using W3C Validator
 <details>
   <summary>Show/Hide Test Validator HTML Images</summary>
-
 
 ![CSS Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-css-style.png)
 
@@ -267,6 +298,9 @@ Testing Documentation
 
 </details>
 
+
+
+✅ Accessibility/Performance: Via Lighthouse
 <details>
   <summary>Show/Hide Lighthouse Images</summary>
 
@@ -282,6 +316,9 @@ Testing Documentation
 
 </details>
 
+
+
+✅ JavaScript Validation: With JSHint
 <details>
   <summary>Show/Hide Test Validator JavaScript Images</summary>
 
