@@ -16,6 +16,7 @@
 - [Core Features](#core-features)  
 - [Why Simple Spoon?](#why-simplespoon)  
 - [User Stories](#user-stories)
+- [Installation & Setup Instructions](#installation--setup-instructions)
 - [UX - User Experience](#ux---user-experience)  
   - [Design Inspiration](#design-inspiration)
   - [Wireframes](#wireframes)
@@ -152,6 +153,70 @@ USER STORY: View Ratings and Reviews [#7](https://github.com/gerasoa/MyRecipeBoo
 USER STORY: Moderate Recipe Submissions and Comments [#8](https://github.com/gerasoa/MyRecipeBook/issues/8#issue-2811841297)
 
 USER STORY: Recipe Rating [#9](https://github.com/gerasoa/MyRecipeBook/issues/9#issue-2811842049)
+
+## Installation & Setup Instructions
+
+Follow the steps below to run this project locally.
+
+### 1. Clone the Repository
+
+If you have Git installed, run:
+
+```bash
+git clone https://github.com/gerasoa/MyRecipeBook.git
+```
+
+### 2. Create and Activate a Virtual Environment
+
+```bash
+python -m venv env
+source env/bin/activate    # On Mac/Linux
+env\Scripts\activate       # On Windows
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Create `env.py` or `.env` file
+
+Create an env.py file (or .env if using python-dotenv) in the root folder and define the following environment variables:
+
+```bash
+import os
+
+os.environ["SECRET_KEY"] = "<your-secret-key>"
+os.environ["DEBUG"] = "True"
+os.environ["ALLOWED_HOSTS"] = "localhost,127.0.0.1"
+os.environ["CSRF_TRUSTED_ORIGINS"] = "http://localhost:8000"
+```
+
+### 5. Apply Migrations
+
+```bash
+python manage.py migrate
+```
+
+### 6. Create a Superuser (Admin access)
+
+```bash
+python manage.py createsuperuser
+```
+
+### 7. Run the Development Server
+
+```bash
+python manage.py runserver
+```
+
+### 8. Running Tests
+``` bash
+python manage.py test
+```
+
+
 
 ## UX - User Experience
 
