@@ -354,9 +354,6 @@ Manual and automated tools were used to test the functionality, usability, respo
 ### 🧩 Validation and Auditing Tools
 
 
-
-
-
 ✅ HTML/CSS Validation: Using W3C Validator
 <details>
   <summary>Show/Hide Test Validator HTML Images</summary>
@@ -406,6 +403,51 @@ Manual and automated tools were used to test the functionality, usability, respo
 ![Scripts](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/validator-js-scripts.png)
 
 </details>
+
+
+### ♿ Accessibility Testing
+
+Accessibility checks were performed using the [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) to ensure the application is usable for all audiences and compliant with accessibility standards.
+
+#### ✅ Key Checks Performed:
+- Heading hierarchy (correct use of `<h1>`, `<h2>`, `<h3>`, etc.)
+- ARIA attributes such as `aria-current`, `aria-expanded`, and `aria-label`
+- Navigation structure with semantic elements (`<nav>`, `<main>`, `<footer>`)
+- Form labelling
+- Keyboard accessibility and focus order
+- Colour contrast (checked separately via Lighthouse and WAVE)
+
+#### 🟢 Final Results:
+- **0 accessibility errors**
+- **0 contrast errors**
+- All ARIA roles and labels are valid
+- No skipped heading levels
+- Semantic HTML structure verified
+
+
+#### 🖼️ Screenshots of Reports
+
+<details>
+<summary>Click to view accessibility test results</summary>
+
+##### ✅ WAVE Report – Homepage
+![Scripts](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wave/home.png)
+
+##### ✅ WAVE Report – About
+![Scripts](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wave/about.png)
+
+##### ✅ WAVE Report – Chefs list
+![Scripts](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wave/chefs.png)
+
+##### ✅ WAVE Report – Cheg detail
+![Scripts](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wave/chef-detail.png)
+
+##### ✅ WAVE Report – Recipe detail
+![Scripts](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/wave/recipe.png)
+
+</details>
+
+
 
 ### Known Issues 
 
