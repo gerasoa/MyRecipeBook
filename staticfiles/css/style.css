@@ -276,9 +276,9 @@ body {
   color: var(--color-button-text);
 }
 
-.btn-signup {
+/* .btn-signup {
   color: var(--color-comment-icon); 
-}
+} */
 
 .pagination .page-link {
   color: var(--color-primary);
