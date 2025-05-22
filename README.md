@@ -254,14 +254,15 @@ Manual and automated tools were used to test the functionality, usability, respo
 | iPhone (iOS 17)              | Safari                |
 
 <details>
-  <summary>Show/Hide Test Validator HTML Images</summary>
-    ![CSS Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/chrome.png)
+  <summary>Show/Hide Devide environments</summary>
 
-    ![CSS Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/edge.png)
+  ![Windows Chrome](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/chrome.png)
 
-    ![CSS Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/firefox.png)
+  ![Windows Edge](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/edge.png)
 
-    ![CSS Validation](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/chromeandroid.jpg)
+  ![Windows Firefox](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/firefox.png)
+
+  ![Android Chrome](https://github.com/gerasoa/MyRecipeBook/blob/main/docs/chromeandroid.jpg)
 
   </details>
 
