@@ -9,9 +9,9 @@
 
 <div class="container mb-5">
     <div class="row">
-        <div class="col-md-6 mt-3 offset-md-2 text-center">
-            <h2 class="sr-only">Sign In</h2>
-            <h3>{% trans "Sign In" %}</h3>
+        <div class="col-md-6 mt-3 offset-md-2">
+            
+            <h2>{% trans "Sign In" %}</h2>
 
             <p>{% blocktrans %}Welcome back to the <strong class="brand-name"><span class="red-o">Simple</span>Spoon</span></strong>. To leave a comment or like a post, please log in. If
                 you
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 mt-3 offset-md-2 text-center">
+        <div class="col-md-6 mt-3 offset-md-2">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
