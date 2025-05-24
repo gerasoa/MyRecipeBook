@@ -17,6 +17,7 @@
 - [Why Simple Spoon?](#why-simplespoon)  
 - [User Stories](#user-stories)
 - [Installation & Setup Instructions](#installation--setup-instructions)
+- [Authentication](#authentication)
 - [UX - User Experience](#ux---user-experience)  
   - [Design Inspiration](#design-inspiration)
   - [Wireframes](#wireframes)
@@ -26,7 +27,11 @@
 - [Data Model](#data-model)  
 - [Authentication, Authorization & Access Control](#authentication-authorization--access-control)  
 - [Testing](#testing)  
-  - [Known Issues](#known-issues)  
+  - [Known Issues](#known-issues)
+  - [Test Environments](#test-environments)
+  - [Manual Test Cases](#manual-test-cases)
+  - [Validation and Auditing Tools](#validation-and-auditing-tools)
+  - [Accessibility Testing](#accessibility-testing)  
 - [Version Control & Secure Code Management](#version-control--secure-code-management)  
 - [Deployment](#deployment)  
   - [Deployment Process](#deployment-process)  
@@ -216,6 +221,12 @@ python manage.py runserver
 python manage.py test
 ```
 
+### 🔐 Authentication
+
+In addition to traditional email/password authentication, the platform supports login via Google OAuth. This offers users a faster and more secure way to sign in, improving accessibility and user experience.
+
+- Email/password login and registration
+- Google login integration via Django Allauth
 
 
 ## UX - User Experience
