@@ -636,6 +636,9 @@ The use of AI drastically reduced development time, allowing for quicker debuggi
 
 **Whitenoise**: Library for serving static files in Django applications.
 
+**Google Cloud OAuth**: Social authentication (Google Login)  
+
+**Flake8**: Code style enforcement (PEP8 compliance) 
 
 ## CREDITS
 
