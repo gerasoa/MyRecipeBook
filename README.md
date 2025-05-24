@@ -258,11 +258,16 @@ Simple Spoon uses the [Montserrat](https://fonts.google.com/specimen/Montserrat)
 
 💡 AI-Powered Recommendations – Suggest recipes based on user preferences and available ingredients.
 
-💡 Video Tutorials – Step-by-step cooking guides from professional chefs.
+💡 Implement advanced filtering options.
 
-💡 Recipe Collections – Themed lists like "Beginner Recipes" and "Quick & Easy Meals".
+💡 Add user-submitted content.
+
+💡 Implement tagging system
+
+💡 Link recipes to user profiles
 
 💡 Meal Planning Tools – Generate weekly meal plans based on dietary preferences.
+
 
 
 ## Data Model
