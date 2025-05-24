@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load account socialaccount %}
+<!-- {% load account socialaccount %} -->
+
+{% load socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
@@ -31,5 +33,17 @@
             </form>
         </div>
     </div>
+<div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <h3> Or </h3>
+      <a href="{% provider_login_url 'google' %}" style="text-decoration: none;">
+        <button type="button" class="btn btn-outline-primary d-flex align-items-center" style="background-color: white; color: black">
+          <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" 
+          style="width:20px; height:20px; margin-right:8px;">
+          Continue with Google
+        </button>
+      </a>
+    </div>
 </div>
 {% endblock %}
+

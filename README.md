@@ -17,6 +17,7 @@
 - [Why Simple Spoon?](#why-simplespoon)  
 - [User Stories](#user-stories)
 - [Installation & Setup Instructions](#installation--setup-instructions)
+- [Authentication](#authentication)
 - [UX - User Experience](#ux---user-experience)  
   - [Design Inspiration](#design-inspiration)
   - [Wireframes](#wireframes)
@@ -26,7 +27,11 @@
 - [Data Model](#data-model)  
 - [Authentication, Authorization & Access Control](#authentication-authorization--access-control)  
 - [Testing](#testing)  
-  - [Known Issues](#known-issues)  
+  - [Known Issues](#known-issues)
+  - [Test Environments](#test-environments)
+  - [Manual Test Cases](#manual-test-cases)
+  - [Validation and Auditing Tools](#validation-and-auditing-tools)
+  - [Accessibility Testing](#accessibility-testing)  
 - [Version Control & Secure Code Management](#version-control--secure-code-management)  
 - [Deployment](#deployment)  
   - [Deployment Process](#deployment-process)  
@@ -216,6 +221,12 @@ python manage.py runserver
 python manage.py test
 ```
 
+### 🔐 Authentication
+
+In addition to traditional email/password authentication, the platform supports login via Google OAuth. This offers users a faster and more secure way to sign in, improving accessibility and user experience.
+
+- Email/password login and registration
+- Google login integration via Django Allauth
 
 
 ## UX - User Experience
@@ -247,11 +258,16 @@ Simple Spoon uses the [Montserrat](https://fonts.google.com/specimen/Montserrat)
 
 💡 AI-Powered Recommendations – Suggest recipes based on user preferences and available ingredients.
 
-💡 Video Tutorials – Step-by-step cooking guides from professional chefs.
+💡 Implement advanced filtering options.
 
-💡 Recipe Collections – Themed lists like "Beginner Recipes" and "Quick & Easy Meals".
+💡 Add user-submitted content.
+
+💡 Implement tagging system
+
+💡 Link recipes to user profiles
 
 💡 Meal Planning Tools – Generate weekly meal plans based on dietary preferences.
+
 
 
 ## Data Model
@@ -620,6 +636,9 @@ The use of AI drastically reduced development time, allowing for quicker debuggi
 
 **Whitenoise**: Library for serving static files in Django applications.
 
+**Google Cloud OAuth**: Social authentication (Google Login)  
+
+**Flake8**: Code style enforcement (PEP8 compliance) 
 
 ## CREDITS
 

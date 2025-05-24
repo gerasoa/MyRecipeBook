@@ -30,6 +30,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('summernote/', include('django_summernote.urls')),
     path('', recipes_views.RecipeList.as_view(), name='home'),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
